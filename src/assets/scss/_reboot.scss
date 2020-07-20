@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font: 62.5%/1 sans-serif;
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+body {
+  @include rfs($font-weight-regular $font-size-base#{"/"}$line-height-base $font-family-base, font);
+  color: $text-color;
+  margin: 0;
+  text-align: left;
+  background-color: $white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: $font-weight-bold;
+}
+
+p {
+  margin: 0;
+}
+
+strong {
+  font-weight: $font-weight-bold;
+}
+
+img {
+  border: 0;
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+svg {
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+a {
+  color: $text-color;
+  text-decoration: none;
+  background-color: $transparent;
+
+  &:hover {
+    color: $text-color;
+    text-decoration: none;
+  }
+}

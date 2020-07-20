@@ -1,0 +1,64 @@
+{
+  "name": "tomasz-karczmarczyk",
+  "version": "1.0.0",
+  "description": "Tomasz Karczmarczyk's Blog",
+  "private": true,
+  "scripts": {
+    "clean": "gulp clean",
+    "watch": "gulp watch",
+    "build:dev": "gulp build",
+    "build:prod": "gulp build --production",
+    "reinstall": "rimraf node_modules && npm i",
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tomaszkarczmarczyk/tomasz-karczmarczyk.git"
+  },
+  "author": {
+    "name": "Tomasz Karczmarczyk",
+    "url": "https://tomaszkarczmarczyk.com",
+    "email": "hello@tomaszkarczmarczyk.com"
+  },
+  "bugs": {
+    "url": "https://github.com/tomaszkarczmarczyk/tomasz-karczmarczyk/issues"
+  },
+  "homepage": "https://github.com/tomaszkarczmarczyk/tomasz-karczmarczyk#readme",
+  "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@prettier/plugin-php": "^0.14.2",
+    "@wordpress/browserslist-config": "^2.7.0",
+    "autoprefixer": "^9.8.5",
+    "bootstrap": "^4.5.0",
+    "browserslist": "^4.13.0",
+    "del": "^5.1.0",
+    "eslint": "^7.4.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-changed": "^4.0.2",
+    "gulp-debug": "^4.0.0",
+    "gulp-dependents": "^1.2.5",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-rsync": "0.0.9",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser-js": "^5.2.2",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "imagemin-svgo": "^8.0.0",
+    "imagemin-webp": "^6.0.0",
+    "node-sass": "^4.14.1",
+    "postcss-combine-duplicated-selectors": "^9.0.0",
+    "postcss-sort-media-queries": "^1.7.25",
+    "prettier": "^2.0.5",
+    "prettier-plugin-twig-melody": "^0.4.6",
+    "rfs": "^9.0.3",
+    "yargs": "^15.4.1"
+  }
+}

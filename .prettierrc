@@ -1,0 +1,13 @@
+{
+  "printWidth": 120,
+  "tabWidth": 2,
+  "phpVersion": "7.4",
+  "overrides": [
+    {
+      "files": ["*.@(js|yml)"],
+      "options": {
+        "singleQuote": true
+      }
+    }
+  ]
+}

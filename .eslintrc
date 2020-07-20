@@ -1,0 +1,13 @@
+{
+  "extends": ["eslint:recommended", "plugin:prettier/recommended"],
+  "parserOptions": {},
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
+  "globals": {},
+  "rules": {
+    "no-var": "warn"
+  }
+}
