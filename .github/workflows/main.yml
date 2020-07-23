@@ -23,7 +23,7 @@ jobs:
           echo "Git:"
           git --version
       - name: Install dependencies
-        run: npm i
+        run: npm ci
       - name: Install Gulp
         run: |
           npm i gulp-cli -g
