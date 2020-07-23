@@ -1,5 +1,6 @@
 {
   "printWidth": 120,
+  "twigPrintWidth": 120,
   "tabWidth": 2,
   "phpVersion": "7.4",
   "overrides": [
