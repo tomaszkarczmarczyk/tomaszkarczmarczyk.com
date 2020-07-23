@@ -35,7 +35,7 @@ const files = {
   php: '/**/*.php',
   images: '/**/*.@(jpg|png)',
   svg: '/**/*.svg',
-  others: '/**/*.css',
+  others: '/**/*.@(css|twig)',
   all: '/**',
 };
 
