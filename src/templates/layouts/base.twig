@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+  <head>
+    <meta charset="{{ site.charset }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="x-dns-prefetch-control" content="off" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
+    <meta name="theme-color" content="#ffc65d" />
+    <link rel="author" href="{{ (site.link ~ '/humans.txt')|e('esc_url') }}" />
+    {{ wp_head() }}
+  </head>
+  <body class="{{ body_class }}">
+    {{ wp_body_open() }}
+    <div class="container">
+      {% block content %}
+        Under construction...
+      {% endblock %}
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__wrapper">
+          <span class="footer__copyright">© {{ 'now'|date('Y') }} Tomasz Karczmarczyk</span>
+          <a href="#" class="footer__link" title="Polityka prywatności">Polityka prywatności</a>
+          <a href="#" class="footer__link" title="Polityka cookies">Polityka cookies</a>
+        </div>
+      </div>
+    </footer>
+    {{ wp_footer() }}
+  </body>
+</html>
