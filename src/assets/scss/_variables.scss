@@ -4,6 +4,11 @@ $white: #fff;
 $transparent: transparent;
 $text-color: $black;
 
+$color-facebook: #4267b2;
+$color-instagram: #c13584;
+$color-twitter: #1da1f2;
+$color-linkedin: #2867b2;
+
 // Fonts
 $font-family-sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
   "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -17,6 +22,10 @@ $font-weight-regular: 400;
 $font-weight-bold: 700;
 
 $line-height-base: 2;
+
+// Transitions
+$transition-duration: 200ms;
+$transition-timing-function: ease-in-out;
 
 // RFS
 $rfs-base-value: $font-size-base;
