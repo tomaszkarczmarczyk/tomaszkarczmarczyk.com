@@ -7,13 +7,15 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="format-detection" content="telephone=no" />
-    <meta name="skype_toolbar" content="skype_toolbar_parser_compatible" />
     <meta name="theme-color" content="#ffc65d" />
     <link rel="author" href="{{ (site.link ~ '/humans.txt')|e('esc_url') }}" />
     {{ wp_head() }}
   </head>
   <body class="{{ body_class }}">
     {{ wp_body_open() }}
+    <header class="header">
+      {% include 'logo.twig' %}
+    </header>
     <div class="container">
       {% block content %}
         Under construction...
