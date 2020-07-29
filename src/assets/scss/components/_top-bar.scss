@@ -1,0 +1,55 @@
+.top-bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 1rem;
+
+  &__link {
+    display: block;
+    margin-right: 2rem;
+    font-size: 0;
+    line-height: 0;
+
+    &--facebook {
+      &:hover {
+        .top-bar__path {
+          fill: $color-facebook;
+        }
+      }
+    }
+
+    &--instagram {
+      &:hover {
+        .top-bar__path {
+          fill: $color-instagram;
+        }
+      }
+    }
+
+    &--twitter {
+      &:hover {
+        .top-bar__path {
+          fill: $color-twitter;
+        }
+      }
+    }
+
+    &--linkedin {
+      &:hover {
+        .top-bar__path {
+          fill: $color-linkedin;
+        }
+      }
+    }
+  }
+
+  &__svg {
+    width: auto;
+    height: 24px;
+  }
+
+  &__path {
+    transition: fill $transition-duration $transition-timing-function;
+    fill: $black;
+  }
+}
