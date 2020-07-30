@@ -17,11 +17,13 @@ class Site extends Timber\Site
   {
     $this->theme_version = wp_get_theme()->get('Version');
     add_action('after_setup_theme', [$this, 'theme_supports']);
+    add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
+    add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+    add_action('login_enqueue_scripts', [$this, 'login_logo']);
     add_filter('timber/context', [$this, 'add_to_context']);
     add_filter('timber/twig', [$this, 'add_to_twig']);
     add_filter('body_class', [$this, 'body_class']);
-    add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
-    add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+    add_filter('login_headerurl', [$this, 'login_url'], 10, 1);
     parent::__construct();
   }
 
@@ -96,6 +98,7 @@ class Site extends Timber\Site
 
   public function enqueue_scripts()
   {
+    wp_deregister_script('jquery');
   }
 
   public function body_class($classes)
@@ -142,6 +145,26 @@ class Site extends Timber\Site
     }
 
     return $classes;
+  }
+
+  public function login_logo()
+  {
+    $logo = logo_url();
+
+    echo "
+    <style>
+      .login h1 a {
+        background-image: url($logo) !important;
+        background-size: contain !important;
+        width: 100% !important;
+      }
+    </style>
+  ";
+  }
+
+  public function login_url($url)
+  {
+    return home_url();
   }
 }
 
