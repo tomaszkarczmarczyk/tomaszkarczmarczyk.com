@@ -11,11 +11,11 @@ html {
 }
 
 body {
-  @include rfs($font-weight-regular $font-size-base#{"/"}$line-height-base $font-family-base, font);
-  color: $text-color;
+  font: var(--font-weight-regular) var(--font-size-medium) / var(--line-height-large) var(--font-family-sans-serif);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   margin: 0;
   text-align: left;
-  background-color: $white;
 }
 
 h1,
@@ -25,7 +25,7 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-weight: $font-weight-bold;
+  font-weight: var(--font-weight-bold);
 }
 
 p {
@@ -33,7 +33,7 @@ p {
 }
 
 strong {
-  font-weight: $font-weight-bold;
+  font-weight: var(--font-weight-bold);
 }
 
 img {
@@ -49,12 +49,12 @@ svg {
 }
 
 a {
-  color: $text-color;
+  color: var(--color-text);
   text-decoration: none;
-  background-color: $transparent;
+  background-color: transparent;
 
   &:hover {
-    color: $text-color;
+    color: var(--color-text);
     text-decoration: none;
   }
 }

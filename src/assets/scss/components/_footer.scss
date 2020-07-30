@@ -1,20 +1,20 @@
 .footer {
-  @include padding(1rem 1rem 1rem 2rem);
-  background-color: $color-secondary;
+  padding: var(--spacer-x-small) var(--spacer-x-small) var(--spacer-x-small) var(--spacer-medium);
+  background-color: var(--color-secondary);
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  color: $white;
+  color: var(--color-bg);
 
   &__copyright {
-    @include font-size(1.5rem);
+    font-size: var(--font-size-small);
     margin-right: auto;
   }
 
   &__link {
-    @include font-size(1.5rem);
-    @include margin-left(1rem);
-    @include padding(0 1rem);
+    font-size: var(--font-size-small);
+    margin-left: var(--spacer-x-small);
+    padding: 0 var(--spacer-x-small);
     color: inherit;
     position: relative;
     z-index: 1;
@@ -38,7 +38,7 @@
       bottom: 0;
       content: "";
       width: 100%;
-      background-color: $text-color;
+      background-color: var(--color-text);
       z-index: -1;
     }
 
@@ -46,14 +46,14 @@
       height: 1px;
       transform: scaleX(0);
       transform-origin: left center;
-      transition: transform $transition-duration $transition-timing-function;
+      transition: transform var(--transition-duration) var(--transition-timing-function);
     }
 
     &::after {
       height: 100%;
       transform: scaleY(0);
       transform-origin: center bottom;
-      transition: transform $transition-duration $transition-duration $transition-timing-function;
+      transition: transform var(--transition-duration) var(--transition-duration) var(--transition-timing-function);
     }
   }
 }
