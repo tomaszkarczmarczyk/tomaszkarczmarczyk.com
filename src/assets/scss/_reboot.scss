@@ -16,6 +16,9 @@ body {
   color: var(--color-text);
   margin: 0;
   text-align: left;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
