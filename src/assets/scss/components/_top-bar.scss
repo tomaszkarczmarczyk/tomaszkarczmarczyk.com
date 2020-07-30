@@ -2,18 +2,18 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 1rem;
+  margin-top: var(--spacer-medium);
 
   &__link {
     display: block;
-    margin-right: 2rem;
+    margin-right: var(--spacer-medium);
     font-size: 0;
     line-height: 0;
 
     &--facebook {
       &:hover {
         .top-bar__path {
-          fill: $color-facebook;
+          fill: var(--color-facebook);
         }
       }
     }
@@ -21,7 +21,7 @@
     &--instagram {
       &:hover {
         .top-bar__path {
-          fill: $color-instagram;
+          fill: var(--color-instagram);
         }
       }
     }
@@ -29,7 +29,7 @@
     &--twitter {
       &:hover {
         .top-bar__path {
-          fill: $color-twitter;
+          fill: var(--color-twitter);
         }
       }
     }
@@ -37,7 +37,7 @@
     &--linkedin {
       &:hover {
         .top-bar__path {
-          fill: $color-linkedin;
+          fill: var(--color-linkedin);
         }
       }
     }
@@ -49,7 +49,7 @@
   }
 
   &__path {
-    transition: fill $transition-duration $transition-timing-function;
-    fill: $black;
+    fill: var(--color-text);
+    transition: fill var(--transition-duration) var(--transition-timing-function);
   }
 }
