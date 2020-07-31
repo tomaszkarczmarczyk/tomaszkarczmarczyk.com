@@ -1,8 +1,8 @@
 .logo {
   display: flex;
+  flex: 1;
 
   &__link {
-    display: block;
-    flex-grow: 1;
+    flex: 1;
   }
 }
