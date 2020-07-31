@@ -2,7 +2,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: var(--spacer-medium);
+  margin: var(--spacer-medium) 0;
 
   &__link {
     display: block;
