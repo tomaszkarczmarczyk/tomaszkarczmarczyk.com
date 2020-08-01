@@ -57,6 +57,12 @@
     </header>
     <header class="header">
       {% include 'logo.twig' %}
+
+      <nav class="menu menu--primary">
+        {% include 'menu.twig' with {
+          items: menu.items
+        } %}
+      </nav>
     </header>
     <div class="container">
       {% block content %}

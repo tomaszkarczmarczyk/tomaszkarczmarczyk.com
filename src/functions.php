@@ -16,6 +16,7 @@ class Site extends Timber\Site
   public function __construct()
   {
     $this->theme_version = wp_get_theme()->get('Version');
+    add_action('init', [$this, 'menus']);
     add_action('after_setup_theme', [$this, 'theme_supports']);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
@@ -25,6 +26,11 @@ class Site extends Timber\Site
     add_filter('body_class', [$this, 'body_class']);
     add_filter('login_headerurl', [$this, 'login_url'], 10, 1);
     parent::__construct();
+  }
+
+  public function menus()
+  {
+    register_nav_menu('primary', 'Menu główne');
   }
 
   public function theme_supports()
@@ -75,7 +81,7 @@ class Site extends Timber\Site
 
   public function add_to_context($context)
   {
-    $context['menu'] = new Timber\Menu();
+    $context['menu'] = new Timber\Menu('primary');
     $context['site'] = $this;
     return $context;
   }
