@@ -1,0 +1,23 @@
+{% set level = level ?? 0 %}
+
+<ul class="{{ level > 0 ? 'menu__submenu menu__submenu--level-' ~ level : 'menu__wrapper' }}">
+  {% for item in items %}
+    {% set ancestor = item.current_item_ancestor ? ' menu__item--ancestor' %}
+    {% set parent = item.current_item_parent ? ' menu__item--parent' %}
+    {% set current = item.current ? ' menu__item--current' %}
+    {% set title = item.attr_title ? ' title="' ~ item.attr_title ~ '"' %}
+    {% set target = item.target ? ' target="' ~ item.target ~ '"' %}
+    {% set classes = ('menu__link' ~ ' ' ~ (item.custom._menu_item_classes|join(' ')))|trim %}
+
+    <li class="{{ 'menu__item' ~ ancestor ~ parent ~ current }}">
+      {{ '<a' ~ title ~ target ~ ' class="' ~ classes ~ '" href="' ~ item.link ~ '">' ~ item.title ~ '</a>' }}
+
+      {% if item.children %}
+        {% include 'menu.twig' with {
+          items: item.children,
+          level: level + 1
+        } %}
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
