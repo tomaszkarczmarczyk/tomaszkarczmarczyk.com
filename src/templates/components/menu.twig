@@ -1,5 +1,9 @@
 {% set level = level ?? 0 %}
 
+{% if container %}
+<nav class="menu menu--{{ container }}">
+{% endif %}
+
 <ul class="{{ level > 0 ? 'menu__submenu menu__submenu--level-' ~ level : 'menu__wrapper' }}">
   {% for item in items %}
     {% set ancestor = item.current_item_ancestor ? ' menu__item--ancestor' %}
@@ -21,3 +25,7 @@
     </li>
   {% endfor %}
 </ul>
+
+{% if container %}
+</nav>
+{% endif %}
