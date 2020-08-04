@@ -1,6 +1,6 @@
 .container {
+  display: flex;
   flex: 1;
-  align-self: center;
   max-width: var(--container-width);
-  margin: var(--spacer-medium);
+  margin: 0 var(--spacer-medium);
 }
