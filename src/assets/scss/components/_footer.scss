@@ -1,10 +1,10 @@
 .footer {
-  padding: var(--spacer-x-small) var(--spacer-x-small) var(--spacer-x-small) var(--spacer-medium);
+  padding: var(--spacer-x-small) 0;
   background-color: var(--color-secondary);
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: center;
   color: var(--color-bg);
+  margin-top: auto;
 
   &__copyright {
     font-size: var(--font-size-small);
@@ -13,8 +13,6 @@
 
   &__link {
     font-size: var(--font-size-small);
-    margin-left: var(--spacer-x-small);
-    padding: 0 var(--spacer-x-small);
     color: inherit;
     position: relative;
     z-index: 1;
@@ -22,12 +20,8 @@
     &:hover {
       color: inherit;
 
-      &::before {
-        transform: scaleX(1);
-      }
-
       &::after {
-        transform: scaleY(1);
+        transform: scaleX(1);
       }
     }
 
@@ -37,23 +31,20 @@
       left: 0;
       bottom: 0;
       content: "";
-      width: 100%;
-      background-color: var(--color-text);
       z-index: -1;
+      background-color: var(--color-text);
+      width: 100%;
+      height: 2px;
     }
 
     &::before {
-      height: 1px;
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform var(--transition-duration) var(--transition-timing-function);
+      opacity: 0.25;
     }
 
     &::after {
-      height: 100%;
-      transform: scaleY(0);
-      transform-origin: center bottom;
-      transition: transform var(--transition-duration) var(--transition-duration) var(--transition-timing-function);
+      transform: scaleX(0);
+      transform-origin: left bottom;
+      transition: transform var(--transition-duration) var(--transition-timing-function);
     }
   }
 }
