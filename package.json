@@ -1,5 +1,5 @@
 {
-  "name": "tomasz-karczmarczyk",
+  "name": "tomaszkarczmarczyk.com",
   "version": "1.0.0",
   "description": "Tomasz Karczmarczyk's Blog",
   "private": true,
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/tomaszkarczmarczyk/tomasz-karczmarczyk.git"
+    "url": "git+ssh://git@github.com/tomaszkarczmarczyk/tomaszkarczmarczyk.com.git"
   },
   "author": {
     "name": "Tomasz Karczmarczyk",
@@ -21,19 +21,19 @@
     "email": "hello@tomaszkarczmarczyk.com"
   },
   "bugs": {
-    "url": "https://github.com/tomaszkarczmarczyk/tomasz-karczmarczyk/issues"
+    "url": "https://github.com/tomaszkarczmarczyk/tomaszkarczmarczyk.com/issues"
   },
-  "homepage": "https://github.com/tomaszkarczmarczyk/tomasz-karczmarczyk#readme",
+  "homepage": "https://github.com/tomaszkarczmarczyk/tomaszkarczmarczyk.com#readme",
   "devDependencies": {
-    "@babel/core": "^7.10.5",
-    "@babel/preset-env": "^7.10.4",
-    "@prettier/plugin-php": "^0.14.2",
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@prettier/plugin-php": "^0.14.3",
     "@wordpress/browserslist-config": "^2.7.0",
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^9.8.6",
     "bootstrap": "^4.5.0",
     "browserslist": "^4.13.0",
     "del": "^5.1.0",
-    "eslint": "^7.4.0",
+    "eslint": "^7.6.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "gulp": "^4.0.2",

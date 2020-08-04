@@ -17,7 +17,6 @@ const imageminJPG = require('imagemin-mozjpeg');
 const imageminPNG = require('imagemin-pngquant');
 const imageminWebP = require('imagemin-webp');
 const imageminSVG = require('imagemin-svgo');
-const info = require('./package.json');
 
 const PRODUCTION = argv.production;
 
@@ -26,7 +25,7 @@ sass.compiler = require('node-sass');
 const dirs = {
   src: 'src',
   dist: 'dist',
-  dev: `/mnt/c/xampp/htdocs/blog/wp-content/themes/${info.name}`,
+  dev: '/mnt/c/xampp/htdocs/blog/wp-content/themes/tomasz-karczmarczyk',
 };
 
 const files = {
