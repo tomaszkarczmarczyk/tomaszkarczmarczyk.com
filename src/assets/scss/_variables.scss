@@ -21,6 +21,7 @@ $grid-breakpoints: (
 
 // Spacers
 $spacers: (
+  xx-small: 0.5rem,
   x-small: 1rem,
   small: 1.5rem,
   medium: 2rem,
@@ -57,7 +58,7 @@ $transition-duration: 200ms;
 $transition-timing-function: ease-in-out;
 
 // Container
-$container-width: 700px;
+$container-width: 1000px;
 
 // RFS
 $rfs-base-value: map-get($font-sizes, "medium");
