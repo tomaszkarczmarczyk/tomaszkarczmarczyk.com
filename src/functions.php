@@ -1,13 +1,11 @@
 <?php defined('ABSPATH') or exit();
 
-add_filter('xmlrpc_enabled', '__return_false');
-
 remove_action('wp_head', 'wp_generator');
 remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-Timber::$dirname = ['templates/components', 'templates/layouts', 'templates/pages'];
+Timber::$dirname = ['templates/components', 'templates/layouts', 'templates/macros', 'templates/pages'];
 
 class Site extends Timber\Site
 {
@@ -24,13 +22,13 @@ class Site extends Timber\Site
     add_filter('timber/context', [$this, 'add_to_context']);
     add_filter('timber/twig', [$this, 'add_to_twig']);
     add_filter('body_class', [$this, 'body_class']);
-    add_filter('login_headerurl', [$this, 'login_url'], 10, 1);
+    add_filter('login_headerurl', [$this, 'login_url']);
     parent::__construct();
   }
 
   public function menus()
   {
-    register_nav_menu('primary', 'Menu główne');
+    register_nav_menu('primary', 'Main menu');
   }
 
   public function theme_supports()
@@ -38,7 +36,7 @@ class Site extends Timber\Site
     global $content_width;
 
     if (!isset($content_width)) {
-      $content_width = 800;
+      $content_width = 700;
     }
 
     load_theme_textdomain('tk');
@@ -92,6 +90,7 @@ class Site extends Timber\Site
     $twig->addFunction(new Timber\Twig_Function('wp_body_open', 'wp_body_open'));
     $twig->addFunction(new Timber\Twig_Function('wp_footer', 'wp_footer'));
     $twig->addFunction(new Timber\Twig_Function('logo_url', 'logo_url'));
+    $twig->addFunction(new Timber\Twig_Function('get_permalink', 'get_permalink'));
     return $twig;
   }
 
@@ -128,8 +127,8 @@ class Site extends Timber\Site
       'body--category' => is_category(),
       'body--tag' => is_tag(),
       'body--tax' => is_tax(),
-      'body--front-page' => is_front_page(),
-      'body--home' => is_home(),
+      'body--home' => is_front_page(),
+      'body--blog' => is_home(),
       'body--privacy-policy' => is_privacy_policy(),
       'body--page' => is_page(),
       'body--paged' => is_paged(),
