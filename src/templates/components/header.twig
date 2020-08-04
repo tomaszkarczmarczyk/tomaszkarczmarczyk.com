@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="header__wrapper">
+    <div class="container">
+      {% include 'social-media.twig' %}
+    </div>
+  </div>
+  <div class="header__wrapper">
+    <div class="container">
+      {% include 'logo.twig' %}
+      {% include 'menu.twig' with {
+        items: menu.items,
+        container: 'primary'
+      } %}
+    </div>
+  </div>
+</header>
