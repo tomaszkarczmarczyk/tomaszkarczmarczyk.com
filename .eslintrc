@@ -1,12 +1,14 @@
 {
   "extends": ["eslint:recommended", "plugin:prettier/recommended"],
-  "parserOptions": {},
+  "parserOptions": {
+    "sourceType": "module"
+  },
   "env": {
     "browser": true,
-    "es2020": true,
+    "es2021": true,
     "node": true
   },
-  "globals": {},
+  "globals": { "wp": true },
   "rules": {
     "no-var": "warn"
   }

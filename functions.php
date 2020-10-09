@@ -5,7 +5,7 @@ remove_action('wp_head', 'rsd_link');
 remove_action('wp_head', 'print_emoji_detection_script', 7);
 remove_action('wp_print_styles', 'print_emoji_styles');
 
-Timber::$dirname = ['templates/components', 'templates/layouts', 'templates/macros', 'templates/pages'];
+Timber::$dirname = ['views/components', 'views/layouts', 'views/macros', 'views/pages'];
 
 class Site extends Timber\Site
 {
@@ -18,6 +18,8 @@ class Site extends Timber\Site
     add_action('after_setup_theme', [$this, 'theme_supports']);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_styles']);
     add_action('wp_enqueue_scripts', [$this, 'enqueue_scripts']);
+    add_action('enqueue_block_editor_assets', [$this, 'gutenberg_enqueue_styles']);
+    add_action('enqueue_block_editor_assets', [$this, 'gutenberg_enqueue_scripts']);
     add_action('login_enqueue_scripts', [$this, 'login_logo']);
     add_filter('timber/context', [$this, 'add_to_context']);
     add_filter('timber/twig', [$this, 'add_to_twig']);
@@ -71,10 +73,49 @@ class Site extends Timber\Site
     add_theme_support('responsive-embeds');
     add_theme_support('align-wide');
     add_theme_support('editor-styles');
-    add_theme_support('dark-editor-style');
+    // add_theme_support('dark-editor-style');
     add_theme_support('disable-custom-font-sizes');
     add_theme_support('disable-custom-colors');
     add_theme_support('disable-custom-gradients');
+    add_theme_support('editor-font-sizes', [
+      [
+        'name' => 'Small',
+        'size' => 15,
+        'slug' => 'small',
+      ],
+      [
+        'name' => 'Medium',
+        'size' => 20,
+        'slug' => 'medium',
+      ],
+      [
+        'name' => 'Large',
+        'size' => 25,
+        'slug' => 'large',
+      ],
+    ]);
+    add_theme_support('editor-color-palette', [
+      [
+        'name' => 'Black',
+        'slug' => 'black',
+        'color' => '#000',
+      ],
+      [
+        'name' => 'White',
+        'slug' => 'white',
+        'color' => '#fff',
+      ],
+      [
+        'name' => 'Primary',
+        'slug' => 'primary',
+        'color' => '#ffc65d',
+      ],
+      [
+        'name' => 'Secondary',
+        'slug' => 'secondary',
+        'color' => '#5d96ff',
+      ],
+    ]);
   }
 
   public function add_to_context($context)
@@ -98,12 +139,27 @@ class Site extends Timber\Site
   {
     wp_dequeue_style('wp-block-library');
 
-    wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/style.css', [], $this->theme_version);
+    wp_enqueue_style('style', get_template_directory_uri() . '/assets/css/main.css', [], $this->theme_version);
   }
 
   public function enqueue_scripts()
   {
     wp_deregister_script('jquery');
+  }
+
+  function gutenberg_enqueue_styles()
+  {
+    wp_enqueue_style('gutenberg', get_template_directory_uri() . '/assets/css/gutenberg.css', [], $this->theme_version);
+  }
+
+  function gutenberg_enqueue_scripts()
+  {
+    wp_enqueue_script(
+      'gutenberg',
+      get_template_directory_uri() . '/assets/js/gutenberg.js',
+      ['wp-blocks', 'wp-dom-ready', 'wp-edit-post', 'wp-rich-text'],
+      $this->theme_version,
+    );
   }
 
   public function body_class($classes)
@@ -175,4 +231,4 @@ class Site extends Timber\Site
 
 new Site();
 
-require get_template_directory() . '/inc/helpers.php';
+require get_template_directory() . '/inc/template-tags.php';
