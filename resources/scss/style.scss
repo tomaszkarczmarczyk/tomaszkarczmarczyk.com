@@ -2,8 +2,8 @@
 @import "variables";
 
 // Vendors
-@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
-@import "../../../node_modules/rfs/scss";
+@import "~bootstrap/scss/mixins/breakpoints";
+@import "~rfs/scss";
 
 // Helpers
 @import "root";
