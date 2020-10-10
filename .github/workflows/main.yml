@@ -14,7 +14,7 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: '14'
-      - name: Versions
+      - name: Check versions
         run: |
           echo "Node:"
           node --version
@@ -24,12 +24,8 @@ jobs:
           git --version
       - name: Install dependencies
         run: npm ci
-      - name: Install Gulp
-        run: |
-          npm i gulp-cli -g
-          gulp --version
-      - name: Build
-        run: gulp build --production
+      - name: Build bundle
+        run: npm run build:dist
       - name: Upload bundle
         uses: actions/upload-artifact@master
         with:
