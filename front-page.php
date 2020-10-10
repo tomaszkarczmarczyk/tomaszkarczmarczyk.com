@@ -1,4 +1,5 @@
 <?php defined('ABSPATH') or exit();
 
 $context = Timber::context();
-Timber::render('front-page.twig', $context);
+$context['post'] = new Timber\Post();
+Timber::render('pages/front-page.twig', $context);

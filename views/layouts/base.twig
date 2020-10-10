@@ -10,11 +10,15 @@
   </head>
   <body class="{{ body_class }}">
     {{ wp_body_open() }}
-    {% include 'header.twig' %}
+
+    {% include 'components/header.twig' %}
+
     {% block content %}
       Under construction...
     {% endblock %}
-    {% include 'footer.twig' %}
+
+    {% include 'components/footer.twig' %}
+
     {{ wp_footer() }}
   </body>
 </html>
