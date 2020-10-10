@@ -1,16 +1,18 @@
 <header class="header">
   <div class="header__wrapper">
     <div class="container">
-      {% include 'social-media.twig' %}
+      {% include 'components/social-media.twig' %}
     </div>
   </div>
   <div class="header__wrapper">
     <div class="container">
-      {% include 'logo.twig' %}
-      {% include 'menu.twig' with {
-        items: menu.items,
-        container: 'primary'
-      } %}
+      {% include 'components/logo.twig' %}
+
+      <nav class="menu--primary">
+        {% include 'components/menu.twig' with {
+          items: menu_1.items
+        } %}
+      </nav>
     </div>
   </div>
 </header>
