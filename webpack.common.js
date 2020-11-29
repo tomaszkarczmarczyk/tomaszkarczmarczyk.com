@@ -1,6 +1,6 @@
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'resources', 'js'),
@@ -34,7 +34,11 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: ['postcss-preset-env', 'postcss-combine-media-query', 'postcss-combine-duplicated-selectors'],
+                plugins: [
+                  'postcss-preset-env',
+                  'postcss-combine-media-query',
+                  'postcss-combine-duplicated-selectors',
+                ],
               },
             },
           },
@@ -75,7 +79,11 @@ module.exports = {
           {
             loader: 'img-loader',
             options: {
-              plugins: [require('imagemin-mozjpeg')(), require('imagemin-pngquant')(), require('imagemin-svgo')()],
+              plugins: [
+                require('imagemin-mozjpeg')(),
+                require('imagemin-pngquant')(),
+                require('imagemin-svgo')(),
+              ],
             },
           },
         ],
