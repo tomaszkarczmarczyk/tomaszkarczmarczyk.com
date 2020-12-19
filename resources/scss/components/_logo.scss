@@ -1,8 +1,13 @@
 .logo {
-  display: flex;
-  width: 300px;
+  line-height: var(--line-height-base);
+  margin-right: var(--spacer-small);
 
   &__link {
-    flex: 1;
+    @include links(var(--color-black));
+    @include focus();
+    font-weight: var(--font-weight-bold);
+    line-height: inherit;
+    text-transform: uppercase;
+    display: block;
   }
 }
