@@ -1,0 +1,62 @@
+@mixin links($link, $visited: $link, $hover: $link, $active: $link) {
+  & {
+    color: $link;
+
+    &:link {
+      color: $link;
+    }
+
+    &:visited {
+      color: $visited;
+    }
+
+    &:hover {
+      color: $hover;
+    }
+
+    &:active {
+      color: $active;
+    }
+  }
+}
+
+@mixin hover($bottom: 0) {
+  position: relative;
+  z-index: 1;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 4px;
+    right: 4px;
+    bottom: $bottom;
+    height: 4px;
+    content: "";
+    background-color: var(--color-primary);
+    z-index: -1;
+  }
+
+  &::before {
+    opacity: 1; // Domyślnie 0.4
+  }
+
+  &::after {
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--transition-duration) var(--transition-timing-function);
+  }
+}
+
+@mixin selection {
+  &::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+
+@mixin focus($offset: 4px) {
+  &:focus {
+    outline: var(--color-danger) solid 1px;
+    outline-offset: $offset;
+  }
+}
