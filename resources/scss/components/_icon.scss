@@ -1,0 +1,69 @@
+.icon {
+  transition: fill var(--transition-duration) var(--transition-timing-function);
+
+  .social-media &,
+  .share-this & {
+    height: 24px;
+  }
+
+  .social-media--is-secondary & {
+    fill: var(--color-white);
+  }
+
+  &--is-at {
+    width: 64px;
+    height: 64px;
+    fill: var(--color-white);
+  }
+
+  &--is-newsletter {
+    width: 64px;
+    height: 64px;
+    fill: var(--color-white);
+  }
+
+  &--is-email {
+    width: 33px;
+    fill: var(--color-black);
+  }
+
+  &--is-copy {
+    width: 25px;
+    fill: var(--color-danger);
+  }
+
+  &--is-facebook {
+    width: 14px;
+
+    .share-this &,
+    .social-media--is-primary & {
+      fill: var(--color-facebook);
+    }
+  }
+
+  &--is-instagram {
+    width: 25px;
+
+    .social-media--is-primary & {
+      fill: var(--color-instagram);
+    }
+  }
+
+  &--is-twitter {
+    width: 31px;
+
+    .share-this &,
+    .social-media--is-primary & {
+      fill: var(--color-twitter);
+    }
+  }
+
+  &--is-linkedin {
+    width: 25px;
+
+    .share-this &,
+    .social-media--is-primary & {
+      fill: var(--color-linkedin);
+    }
+  }
+}
