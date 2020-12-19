@@ -1,0 +1,35 @@
+.share-this {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 var(--spacer-small);
+
+  &__heading {
+    font-size: var(--font-size-x-small);
+    line-height: 1;
+    margin-bottom: var(--spacer-xxx-small);
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    height: 60px;
+    align-self: stretch;
+  }
+
+  &__link {
+    @include focus();
+    padding: var(--spacer-xxx-small);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--is-disabled {
+      display: none;
+    }
+  }
+}
