@@ -5,6 +5,16 @@ if (!function_exists('tokk_font_sizes')) {
   {
     return [
       [
+        'name' => '3xS',
+        'size' => 4,
+        'slug' => 'xxx-small',
+      ],
+      [
+        'name' => '2xS',
+        'size' => 8,
+        'slug' => 'xx-small',
+      ],
+      [
         'name' => '1xS',
         'size' => 12,
         'slug' => 'x-small',
@@ -48,49 +58,44 @@ if (!function_exists('tokk_color_palette')) {
   {
     return [
       [
-        'name' => 'Black',
+        'name' => __('Black', 'tokk'),
         'slug' => 'black',
-        'color' => '#000',
+        'color' => 'hsl(0, 0%, 0%)',
       ],
       [
-        'name' => 'White',
+        'name' => __('White', 'tokk'),
         'slug' => 'white',
-        'color' => '#fff',
+        'color' => 'hsl(0, 0%, 100%)',
       ],
       [
-        'name' => 'Primary',
+        'name' => __('Primary', 'tokk'),
         'slug' => 'primary',
-        'color' => '#4299e1',
+        'color' => 'hsl(220, 100%, 50%)',
       ],
       [
-        'name' => 'Secondary',
-        'slug' => 'secondary',
-        'color' => '#2a4365',
+        'name' => __('Danger', 'tokk'),
+        'slug' => 'danger',
+        'color' => 'hsl(0, 75%, 50%)',
       ],
       [
-        'name' => 'Tertiary',
-        'slug' => 'tertiary',
-        'color' => '#e53e3e',
+        'name' => __('Warning', 'tokk'),
+        'slug' => 'warning',
+        'color' => 'hsl(50, 90%, 50%)',
       ],
       [
-        'name' => 'Gray 1',
-        'slug' => 'gray-1',
-        'color' => '#f7fafc',
+        'name' => __('Gray 100', 'tokk'),
+        'slug' => 'gray-100',
+        'color' => 'hsl(0, 0%, 97%)',
       ],
       [
-        'name' => 'Gray 2',
-        'slug' => 'gray-2',
-        'color' => '#e2e8f0',
+        'name' => __('Gray 200', 'tokk'),
+        'slug' => 'gray-200',
+        'color' => 'hsl(0, 0%, 87%)',
       ],
       [
-        'name' => 'Gray 3',
-        'slug' => 'gray-3',
-        'color' => '#a0aec0',
-      ],
-      [
-        'name' => 'Gray 4',
-        'slug' => 'gray-4',
-        'color' => '#718096',
+        'name' => __('Gray 300', 'tokk'),
+        'slug' => 'gray-300',
+        'color' => 'hsl(0, 0%, 77%)',
       ],
     ];
   }
@@ -105,7 +110,11 @@ if (!function_exists('tokk_gutenberg_setup')) {
     add_theme_support('editor-gradient-presets');
     add_theme_support('editor-font-sizes', tokk_font_sizes());
     add_theme_support('editor-color-palette', tokk_color_palette());
+    add_theme_support('editor-styles');
+
     remove_theme_support('core-block-patterns');
+
+    add_editor_style('./assets/css/gutenberg.css');
   }
 }
 
@@ -150,7 +159,20 @@ add_action('enqueue_block_editor_assets', 'tokk_gutenberg_enqueue_scripts');
 if (!function_exists('tokk_sanitize_image')) {
   function tokk_sanitize_image($content)
   {
-    return preg_replace('/wp-image-(\d+)/i', 'content__image content__image--is-$1"', $content);
+    preg_match_all('/srcset="(.*?)"/i', $content, $test);
+
+    // <source></source>
+
+    // return preg_replace(
+    //   '/(<img(.*?)\/>)/i',
+    //   '<picture><source srcset="' . $test[1][0] . '"/>$1</picture>',
+    //   $content,
+    // );
+
+    // echo '<pre>' . print_r(str_replace('.jpg', '.jpg.webp', $test[1])) . '</pre>';
+    // echo '<pre>' . print_r($test) . '</pre>';
+
+    return preg_replace('/wp-image-(\d+)/i', 'content__image content__image--is-$1', $content);
   }
 }
 
@@ -185,24 +207,44 @@ if (!function_exists('tokk_block_custom_classes')) {
     }
 
     if ($block['blockName'] === 'core/image') {
+      $content = preg_replace(
+        '/<div\s+class="(.*?)"><figure\s+class="(.*?)">(.*?)<\/figure><\/div>/i',
+        '<figure class="$1 $2">$3</figure>',
+        $content,
+      );
+
       $content = str_replace(
         [
           'wp-block-image',
           'size-thumbnail',
+          'size-medium_large',
           'size-medium',
           'size-large',
           'size-full',
           'is-resized',
+          'size-1600x1600',
+          'size-1920x1920',
+          'size-2240x2240',
           'is-style-default',
+          'alignleft',
+          'aligncenter',
+          'alignright',
         ],
         [
           "$prefix-wrapper",
           "$prefix-wrapper--is-thumbnail",
+          "$prefix-wrapper--is-medium-large",
           "$prefix-wrapper--is-medium",
           "$prefix-wrapper--is-large",
           "$prefix-wrapper--is-full",
           "$prefix-wrapper--is-resized",
+          "$prefix-wrapper--is-1600",
+          "$prefix-wrapper--is-1920",
+          "$prefix-wrapper--is-2240",
           "$prefix-wrapper--is-style-default",
+          "$prefix-wrapper--is-align-left",
+          "$prefix-wrapper--is-align-center",
+          "$prefix-wrapper--is-align-right",
         ],
         $content,
       );
@@ -225,8 +267,8 @@ if (!function_exists('tokk_block_custom_classes')) {
 
     if ($block['blockName'] === 'core/quote') {
       $content = str_replace(
-        ['wp-block-quote', 'is-style-default'],
-        [$prefix, "$prefix--is-style-default"],
+        ['wp-block-quote', 'is-style-default', 'is-style-warning'],
+        [$prefix, "$prefix--is-style-default", "$prefix--is-style-warning"],
         $content,
       );
     }
@@ -277,6 +319,10 @@ if (!function_exists('tokk_block_custom_classes')) {
       $content = str_replace('wp-block-spacer', $prefix, $content);
     }
 
+    if ($block['blockName'] === 'core/shortcode') {
+      $content = preg_replace('/<p(.*?)*>(.*?)<\/p>/i', '$2', $content);
+    }
+
     $font_slugs_before = [];
     $font_slugs_after = [];
     $text_color_before = [];
@@ -298,7 +344,11 @@ if (!function_exists('tokk_block_custom_classes')) {
       $background_color_after[] = "content__custom-background-color--is-$value[slug]";
     }
 
-    $content = preg_replace('/<a\s+(.*?)\s*>/i', '<a class="content__link" $1>', $content);
+    $content = preg_replace(
+      '/<a\s+(.*?)\s*>/i',
+      '<a class="content__link" aria-label="More" $1>',
+      $content,
+    );
 
     return empty($prefix)
       ? $content
