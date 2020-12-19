@@ -1,7 +1,10 @@
+import '../scss/gutenberg.scss';
+
 const {
-  blocks: { getBlockTypes, unregisterBlockStyle },
+  blocks: { getBlockTypes, registerBlockStyle, unregisterBlockStyle },
   hooks: { addFilter },
   richText: { unregisterFormatType },
+  i18n: { __ },
   domReady,
 } = wp;
 
@@ -33,6 +36,14 @@ domReady(() => {
   unregisterBlockStyle('core/separator', 'dots');
 
   unregisterFormatType('core/image');
+
+  registerBlockStyle('core/quote', {
+    name: 'warning',
+    label: __('Warning', 'tokk'),
+    isDefault: false,
+  });
+
+  console.log(wp.data.select('core/rich-text').getFormatTypes());
 
   getBlockTypes().forEach((blockType) => {
     console.log(blockType.name);
