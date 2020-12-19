@@ -1,0 +1,57 @@
+.hamburger {
+  @include focus(8px);
+  $this: &;
+  position: relative;
+  width: 40px;
+  height: 20px;
+  background-color: transparent;
+  z-index: 99;
+
+  &__item {
+    width: 40px;
+    height: 4px;
+    display: block;
+    background-color: var(--color-black);
+    position: absolute;
+    left: 0;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+
+    &:first-child,
+    &:last-child {
+      transition-property: background-color, transform;
+      transform-origin: center center;
+
+      #{$this}--is-open & {
+        background-color: var(--color-white);
+      }
+    }
+
+    &:first-child {
+      top: 0;
+
+      #{$this}--is-open & {
+        transform: translateY(8px) rotate(-45deg);
+      }
+    }
+
+    &:nth-child(2) {
+      top: 8px;
+      opacity: 1;
+      transition-property: background-color, opacity;
+
+      #{$this}--is-open & {
+        opacity: 0;
+        background-color: var(--color-primary);
+      }
+    }
+
+    &:last-child {
+      top: 16px;
+
+      #{$this}--is-open & {
+        transform: translateY(-8px) rotate(45deg);
+      }
+    }
+  }
+}
