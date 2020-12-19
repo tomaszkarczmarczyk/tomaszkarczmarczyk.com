@@ -1,0 +1,25 @@
+{% set image_gravatar = 'identicon' %}
+{% set image_author_size = 40 %}
+{% set image_author_1 =
+  author.avatar({
+    size: image_author_size,
+    default: image_gravatar
+  })
+%}
+{% set image_author_2 =
+  author.avatar({
+    size: image_author_size * 2,
+    default: image_gravatar
+  })
+%}
+{% set image_author_3 =
+  author.avatar({
+    size: image_author_size * 3,
+    default: image_gravatar
+  })
+%}
+
+<figure class="author__cover">
+  <img class="author__image" width="{{ image_author_size }}" height="{{ image_author_size }}" src="{{ image_author_1 }}" srcset="{{ image_author_1 }} 40w, {{ image_author_2 }} 80w, {{ image_author_3 }} 120w" sizes="(max-width: {{ image_author_size ~ 'px' }}) 100vw, {{ image_author_size ~ 'px' }}" alt="{{ author.name }}" />
+</figure>
+<span class="author__name">{{ author.name }}</span>
