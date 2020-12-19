@@ -1,0 +1,49 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+  <main class="main">
+    <h1 class="heading heading--is-primary">
+      {{ post.title }}
+    </h1>
+    {% if theme.theme_mod('blog_description') %}
+      <div class="description">
+        <p class="description__paragraph">
+          {{ theme.theme_mod('blog_description') }}
+        </p>
+
+        {% if categories %}
+          <article class="category-list">
+            <h2 class="category-list__heading">
+              {{ __('Wszystkie kategorie:', 'tokk') }}
+            </h2>
+            {% include 'components/category-list.twig' with {
+              categories: categories
+            } %}
+          </article>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    {% if posts %}
+      {% for post in posts %}
+        <div class="card">
+          {% include 'components/card.twig' with {
+            post: post
+          } %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="description description--is-info">
+        <p class="description__paragraph">
+          {{ __('W tym momencie nie ma jeszcze żadnych artykułów na blogu', 'tokk') }}
+        </p>
+      </div>
+    {% endif %}
+  </main>
+
+  {% if sidebar %}
+    <aside class="sidebar sidebar--is-blog">
+      {{ sidebar }}
+    </aside>
+  {% endif %}
+{% endblock %}
