@@ -1,6 +1,6 @@
 {% set level = level ?? 0 %}
 
-<ul class="{{ level > 0 ? 'menu__submenu menu__submenu--is-level-' ~ level : 'menu__wrapper' }}">
+<ul class="{{ level > 0 ? 'menu__submenu menu__submenu--is-level-' ~ level : 'menu__items' }}">
   {% for item in items %}
     {% set current = item.current ? ' menu__item--is-current' %}
     {% set children = item.has_child_class ? ' menu__item--is-children' %}
