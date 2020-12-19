@@ -1,57 +1,55 @@
 .social-media {
   display: flex;
-  align-items: center;
-  margin-left: auto;
+
+  &__heading {
+    font-size: var(--font-size-x-small);
+    line-height: 1;
+    margin-bottom: var(--spacer-xxx-small);
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    height: 60px;
+    align-self: stretch;
+  }
 
   &__link {
-    margin-right: var(--spacer-medium);
-    font-size: 0;
-    line-height: 0;
-
-    &:last-child {
-      margin-right: 0;
-    }
-
-    &--facebook {
-      &:hover {
-        .social-media__path {
-          fill: var(--color-facebook);
-        }
-      }
-    }
-
-    &--instagram {
-      &:hover {
-        .social-media__path {
-          fill: var(--color-instagram);
-        }
-      }
-    }
-
-    &--twitter {
-      &:hover {
-        .social-media__path {
-          fill: var(--color-twitter);
-        }
-      }
-    }
-
-    &--linkedin {
-      &:hover {
-        .social-media__path {
-          fill: var(--color-linkedin);
-        }
-      }
-    }
+    @include focus();
+    padding: var(--spacer-xxx-small);
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  &__svg {
-    width: auto;
-    height: 24px;
+  &--is-primary {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 
-  &__path {
-    fill: var(--color-text);
-    transition: fill var(--transition-duration) var(--transition-timing-function);
+  &--is-secondary {
+    width: 100vw;
+    height: 80px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(var(--spacer-xxx-large));
+    transform-origin: center center;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .aside--is-visible & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-property: transform, opacity;
+      transition-duration: var(--transition-duration);
+      transition-timing-function: var(--transition-timing-function);
+      transition-delay: calc(2 * var(--transition-duration));
+    }
   }
 }
