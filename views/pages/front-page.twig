@@ -1,11 +1,33 @@
 {% extends 'layouts/base.twig' %}
 
 {% block content %}
-  <div class="page">
-    <div class="container">
-      <main class="content">
+  <main class="main">
+    {% if post.thumbnail %}
+      <figure class="me">
+        <img class="me__image" width="{{ post.thumbnail.sizes.thumbnail.width }}" height="{{ post.thumbnail.sizes.thumbnail.height }}" src="{{ post.thumbnail.src('thumbnail') }}" srcset="{{ post.thumbnail.srcset }}" sizes="(max-width: {{ post.thumbnail.sizes.thumbnail.width ~ 'px' }}) 100vw, {{ post.thumbnail.sizes.thumbnail.width ~ 'px' }}" alt="{{ post.thumbnail.alt }}" />
+      </figure>
+    {% endif %}
+
+    <article class="content">
+      {% filter apply_filters('tokk_content_sanitize') %}
         {{ post.content }}
-      </main>
-    </div>
-  </div>
+      {% endfilter %}
+    </article>
+
+    {% if posts %}
+      {% for post in posts %}
+        <div class="card">
+          {% include 'components/card.twig' with {
+            post: post
+          } %}
+        </div>
+      {% endfor %}
+    {% endif %}
+  </main>
+
+  {% if sidebar %}
+    <aside class="sidebar sidebar--is-front-page">
+      {{ sidebar }}
+    </aside>
+  {% endif %}
 {% endblock %}
