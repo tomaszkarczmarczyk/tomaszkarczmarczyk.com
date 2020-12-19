@@ -1,0 +1,6 @@
+.layout {
+  display: grid;
+  grid-template-rows: 80px 1fr 80px;
+  gap: var(--spacer-small);
+  min-height: 100vh;
+}
