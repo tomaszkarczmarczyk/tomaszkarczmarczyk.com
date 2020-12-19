@@ -1,65 +1,66 @@
 .menu {
-  display: flex;
+  $this: &;
 
-  &__wrapper {
-    display: flex;
+  &__items {
     padding: 0;
     list-style: none;
-    color: var(--color-secondary);
+
+    #{$this}--is-mobile & {
+      width: 100vw;
+    }
   }
 
   &__item {
-    margin-right: var(--spacer-medium);
+    & + & {
+      #{$this}--is-mobile & {
+        margin-top: var(--spacer-xxx-large);
+      }
+    }
 
-    &:last-child {
-      margin-right: 0;
+    #{$this}--is-mobile & {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: var(--font-size-xxx-large);
+      font-weight: var(--font-weight-bold);
+      line-height: 1;
     }
   }
 
   &__link {
-    display: block;
-    position: relative;
-    z-index: 1;
-    line-height: var(--line-height-base);
-    text-transform: uppercase;
-    font-weight: var(--font-weight-bold);
-    padding-bottom: var(--spacer-xx-small);
-    color: inherit;
+    @include focus(8px);
 
-    .menu__item--current &,
-    &:hover {
-      color: inherit;
-
-      &::after {
-        transform: scaleX(1);
-      }
+    #{$this}--is-mobile & {
+      @include links(var(--color-white));
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      text-transform: uppercase;
     }
 
-    &::before,
-    &::after {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      content: "";
-      z-index: -1;
-      background-color: var(--color-secondary);
-      width: 100%;
-      height: 2px;
-    }
-
-    &::before {
-      opacity: 0.25;
-    }
-
-    &::after {
-      transform: scaleX(0);
-      transform-origin: left bottom;
-      transition: transform var(--transition-duration) var(--transition-timing-function);
+    #{$this}--is-mobile #{$this}__item--is-current & {
+      color: var(--color-black);
     }
   }
 
-  &--primary {
-    align-self: center;
-    margin-left: auto;
+  &--is-desktop {
+    display: none;
+  }
+
+  &--is-mobile {
+    opacity: 0;
+    transform: translateY(var(--spacer-xxx-large));
+    transform-origin: center center;
+    overflow: auto;
+    padding: var(--spacer-xxx-large) 0;
+
+    .aside--is-visible & {
+      opacity: 1;
+      transform: translateY(0);
+      transition-property: transform, opacity;
+      transition-duration: var(--transition-duration);
+      transition-timing-function: var(--transition-timing-function);
+      transition-delay: var(--transition-duration);
+    }
   }
 }
