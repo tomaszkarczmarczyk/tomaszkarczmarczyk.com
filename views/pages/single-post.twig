@@ -1,5 +1,66 @@
 {% extends 'layouts/base.twig' %}
 
 {% block content %}
-  {{ post.content }}
+  <main class="single-post single-post--is-{{ post.format ? : 'standard' }}">
+    <header class="single-post__header">
+      <h1 class="heading heading--is-primary">
+        {{ post.title }}
+      </h1>
+
+      {% if post.author %}
+        <div class="author">
+          {% include 'components/author.twig' with {
+            author: post.author
+          } %}
+        </div>
+      {% endif %}
+
+      {% if post.categories %}
+        <div class="category-list category-list--is-secondary">
+          {% include 'components/category-list.twig' with {
+            categories: post.categories
+          } %}
+        </div>
+      {% endif %}
+    </header>
+
+    {% if post.thumbnail %}
+      <figure class="cover">
+        {% include 'components/cover.twig' with {
+          class: 'cover'
+        } %}
+      </figure>
+    {% endif %}
+
+    {% if post.post_excerpt %}
+      <p class="single-post__lead">
+        {% filter apply_filters('the_excerpt') %}
+          {{ post.post_excerpt }}
+        {% endfilter %}
+      </p>
+    {% endif %}
+
+    <article class="content">
+      {% filter apply_filters('tokk_content_sanitize') %}
+        {{ post.content }}
+      {% endfilter %}
+    </article>
+    <article class="share-this">
+      <h2 class="share-this__heading">
+        {{ __('Spodobał Ci się ten artykuł? Podziel się:', 'tokk') }}
+      </h2>
+      <div class="share-this__wrapper">
+        {% include 'components/share-this.twig' with {
+          url: post.link,
+          title: post.title
+        } %}
+      </div>
+    </article>
+  </main>
+
+  {% if sidebar %}
+    <aside class="sidebar sidebar--is-single-post">
+      {{ sidebar }}
+    </aside>
+  {% endif %}
 {% endblock %}
