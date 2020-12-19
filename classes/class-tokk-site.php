@@ -25,7 +25,7 @@ if (!class_exists('Tokk_Site')) {
       $twig->addFunction(new Timber\Twig_Function('wp_body_open', 'wp_body_open'));
       $twig->addFunction(new Timber\Twig_Function('wp_footer', 'wp_footer'));
       $twig->addFunction(new Timber\Twig_Function('get_permalink', 'get_permalink'));
-      $twig->addFunction(new Timber\Twig_Function('tokk_logo_url', 'tokk_logo_url'));
+      $twig->addFunction(new Timber\Twig_Function('get_category_link', 'get_category_link'));
 
       return $twig;
     }
