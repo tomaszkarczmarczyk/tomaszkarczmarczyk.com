@@ -1,5 +1,5 @@
 .page {
-  display: flex;
-  justify-content: center;
-  margin: var(--spacer-medium) 0;
+  > * + * {
+    margin-top: var(--spacer-small);
+  }
 }
