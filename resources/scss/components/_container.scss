@@ -1,6 +1,10 @@
 .container {
   display: flex;
-  flex: 1;
-  max-width: var(--container-width);
-  margin: 0 var(--spacer-medium);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  > * + * {
+    margin-top: var(--spacer-small);
+  }
 }

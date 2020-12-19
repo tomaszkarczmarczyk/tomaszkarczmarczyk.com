@@ -1,0 +1,8 @@
+.sidebar {
+  padding: 0 var(--spacer-small);
+  align-self: stretch;
+
+  > * + * {
+    margin-top: var(--spacer-small);
+  }
+}

@@ -1,0 +1,13 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+  height: 40px;
+
+  &--is-primary {
+    background-color: var(--color-danger);
+    font-size: var(--font-size-small);
+    color: var(--color-white);
+  }
+}
