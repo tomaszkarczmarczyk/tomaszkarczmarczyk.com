@@ -5,7 +5,7 @@ const { merge } = require('webpack-merge');
 
 module.exports = merge(common, {
   mode: 'production',
-  devtool: 'source-map',
+  devtool: false,
   optimization: {
     minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },

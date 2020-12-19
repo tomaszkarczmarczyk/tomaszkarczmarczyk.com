@@ -7,6 +7,7 @@ module.exports = {
   entry: {
     main: './index.js',
     gutenberg: './gutenberg.js',
+    post: './post.js',
   },
   plugins: [
     new CleanWebpackPlugin(),
@@ -82,7 +83,9 @@ module.exports = {
               plugins: [
                 require('imagemin-mozjpeg')(),
                 require('imagemin-pngquant')(),
-                require('imagemin-svgo')(),
+                require('imagemin-svgo')({
+                  plugins: [{ cleanupIDs: false }],
+                }),
               ],
             },
           },
