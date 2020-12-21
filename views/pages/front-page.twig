@@ -2,19 +2,25 @@
 
 {% block content %}
   <main class="main">
-    {% if post.thumbnail %}
-      <figure class="me">
-        <img class="me__image" width="{{ post.thumbnail.sizes.thumbnail.width }}" height="{{ post.thumbnail.sizes.thumbnail.height }}" src="{{ post.thumbnail.src('thumbnail') }}" srcset="{{ post.thumbnail.srcset }}" sizes="(max-width: {{ post.thumbnail.sizes.thumbnail.width ~ 'px' }}) 100vw, {{ post.thumbnail.sizes.thumbnail.width ~ 'px' }}" alt="{{ post.thumbnail.alt }}" />
-      </figure>
-    {% endif %}
+    <div class="me">
+      {% if post.thumbnail %}
+        <figure class="me__cover">
+          <img class="me__image" width="{{ post.thumbnail.sizes.thumbnail.width }}" height="{{ post.thumbnail.sizes.thumbnail.height }}" src="{{ post.thumbnail.src('thumbnail') }}" srcset="{{ post.thumbnail.srcset }}" sizes="(max-width: {{ post.thumbnail.sizes.thumbnail.width ~ 'px' }}) 100vw, {{ post.thumbnail.sizes.thumbnail.width ~ 'px' }}" alt="{{ post.thumbnail.alt }}" />
+        </figure>
+      {% endif %}
 
-    <article class="content">
-      {% filter apply_filters('tokk_content_sanitize') %}
-        {{ post.content }}
-      {% endfilter %}
-    </article>
+      <article class="content">
+        {% filter apply_filters('tokk_content_sanitize') %}
+          {{ post.content }}
+        {% endfilter %}
+      </article>
+    </div>
 
     {% if posts %}
+      <h2 class="heading heading--is-secondary">
+        {{ __('Najnowsze artykuły na blogu:', 'tokk') }}
+      </h2>
+
       {% for post in posts %}
         <div class="card">
           {% include 'components/card.twig' with {
