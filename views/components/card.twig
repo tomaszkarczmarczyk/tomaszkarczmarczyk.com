@@ -6,7 +6,7 @@
   </figure>
 {% endif %}
 
-<article class="card__body">
+<section class="card__body">
   {% if post.categories %}
     <div class="category-list category-list--is-primary">
       {% include 'components/category-list.twig' with {
@@ -28,4 +28,4 @@
   {% endif %}
 
   <a href="{{ post.link|e('esc_url') }}" aria-label="Read More" class="card__link"><span class="card__inner">{{ __('Czytaj więcej', 'tokk') }}</span></a>
-</article>
+</section>
