@@ -25,11 +25,19 @@
   &--is-email {
     width: 33px;
     fill: var(--color-black);
+
+    .body--is-desktop .share-this__link:hover & {
+      fill: var(--color-black);
+    }
   }
 
   &--is-copy {
     width: 25px;
     fill: var(--color-danger);
+
+    .body--is-desktop .share-this__link:hover & {
+      fill: var(--color-danger);
+    }
   }
 
   &--is-facebook {
@@ -39,12 +47,25 @@
     .social-media--is-primary & {
       fill: var(--color-facebook);
     }
+
+    .body--is-desktop .share-this__link:hover &,
+    .body--is-desktop .social-media--is-primary .social-media__link:hover & {
+      fill: var(--color-facebook);
+    }
   }
 
   &--is-instagram {
     width: 25px;
 
     .social-media--is-primary & {
+      fill: var(--color-instagram);
+    }
+
+    .body--is-desktop .social-media--is-primary & {
+      fill: var(--color-gray-400);
+    }
+
+    .body--is-desktop .social-media--is-primary .social-media__link:hover & {
       fill: var(--color-instagram);
     }
   }
@@ -56,6 +77,11 @@
     .social-media--is-primary & {
       fill: var(--color-twitter);
     }
+
+    .body--is-desktop .share-this__link:hover &,
+    .body--is-desktop .social-media--is-primary .social-media__link:hover & {
+      fill: var(--color-twitter);
+    }
   }
 
   &--is-linkedin {
@@ -64,6 +90,28 @@
     .share-this &,
     .social-media--is-primary & {
       fill: var(--color-linkedin);
+    }
+
+    .body--is-desktop .share-this__link:hover &,
+    .body--is-desktop .social-media--is-primary .social-media__link:hover & {
+      fill: var(--color-linkedin);
+    }
+  }
+
+  &--is-copy,
+  &--is-email {
+    .body--is-desktop & {
+      fill: var(--color-gray-400);
+    }
+  }
+
+  &--is-facebook,
+  &--is-instagram,
+  &--is-twitter,
+  &--is-linkedin {
+    .body--is-desktop .share-this &,
+    .body--is-desktop .social-media--is-primary & {
+      fill: var(--color-gray-400);
     }
   }
 }

@@ -10,22 +10,39 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @include media-breakpoint-up(sm) {
+      flex-direction: row;
+      justify-content: space-between;
+      flex-basis: $container-sm-width;
+    }
+
+    @include media-breakpoint-up(lg) {
+      flex-basis: $container-lg-width;
+    }
   }
 
   &__copyright,
   &__link {
     font-size: var(--font-size-small);
-    line-height: var(--line-height-base);
+    line-height: var(--line-height-normal);
   }
 
   &__copyright {
     color: var(--color-black);
     margin-bottom: var(--spacer-xx-small);
+
+    @include media-breakpoint-up(sm) {
+      margin-bottom: 0;
+    }
   }
 
   &__link {
     @include links(var(--color-primary));
-    @include hover(-4px);
     @include focus(8px);
+
+    .body--is-desktop & {
+      @include hover(-4px);
+    }
   }
 }

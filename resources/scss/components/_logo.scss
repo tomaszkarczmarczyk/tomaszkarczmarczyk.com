@@ -9,5 +9,9 @@
     line-height: inherit;
     text-transform: uppercase;
     display: block;
+
+    @include media-breakpoint-up(sm) {
+      font-size: var(--font-size-x-large);
+    }
   }
 }

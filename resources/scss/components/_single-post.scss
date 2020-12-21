@@ -1,10 +1,18 @@
 .single-post {
+  @include media-breakpoint-up(lg) {
+    flex: 1 1 0;
+  }
+
   > * + * {
     margin-top: var(--spacer-small);
   }
 
   &__header {
     padding: 0 var(--spacer-small);
+
+    @include media-breakpoint-up(sm) {
+      padding: 0;
+    }
 
     > * + * {
       margin-top: var(--spacer-small);
@@ -17,6 +25,11 @@
     padding: 0 var(--spacer-small) calc(2 * var(--spacer-xxx-large));
     text-align: center;
     position: relative;
+
+    @include media-breakpoint-up(sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     &::before {
       position: absolute;

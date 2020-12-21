@@ -6,10 +6,23 @@
   padding: 0 var(--spacer-small) var(--spacer-small);
   border-bottom: 1px solid var(--color-gray-200);
 
+  @include media-breakpoint-up(sm) {
+    padding: 0;
+    align-items: center;
+  }
+
   &__wrapper {
-    flex: 1 1 100%;
+    flex-basis: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include media-breakpoint-up(sm) {
+      flex-basis: $container-sm-width;
+    }
+
+    @include media-breakpoint-up(lg) {
+      flex-basis: $container-lg-width;
+    }
   }
 }
