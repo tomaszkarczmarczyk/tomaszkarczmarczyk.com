@@ -8,17 +8,17 @@
   ~ (url|e('esc_url'))
 %}
 
-<a href="{{ ('https://www.facebook.com/sharer/sharer.php?u=' ~ (url|e('esc_url')) ~ '&amp;t=' ~ title)|e('esc_url') }}" class="share-this__link share-this__link--is-window" target="shareThisWindow" rel="noreferrer noopener" aria-label="Facebook">
+<a href="{{ ('https://www.facebook.com/sharer/sharer.php?u=' ~ (url|e('esc_url')) ~ '&amp;t=' ~ title)|e('esc_url') }}" class="share-this__link" target="shareThisWindow" rel="noreferrer noopener" aria-label="Facebook">
   <svg class="icon icon--is-facebook">
     <use class="icon__use" xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-facebook' }}"></use>
   </svg>
 </a>
-<a href="{{ ('https://twitter.com/intent/tweet?url=' ~ (url|e('esc_url')) ~ '&amp;text=' ~ title)|e('esc_url') }}" class="share-this__link share-this__link--is-window" target="shareThisWindow" rel="noreferrer noopener" aria-label="Twitter">
+<a href="{{ ('https://twitter.com/intent/tweet?url=' ~ (url|e('esc_url')) ~ '&amp;text=' ~ title)|e('esc_url') }}" class="share-this__link" target="shareThisWindow" rel="noreferrer noopener" aria-label="Twitter">
   <svg class="icon icon--is-twitter">
     <use class="icon__use" xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-twitter' }}"></use>
   </svg>
 </a>
-<a href="{{ ('https://www.linkedin.com/sharing/share-offsite/?url=' ~ (url|e('esc_url')))|e('esc_url') }}" class="share-this__link share-this__link--is-window" target="shareThisWindow" rel="noreferrer noopener" aria-label="LinkedIn">
+<a href="{{ ('https://www.linkedin.com/sharing/share-offsite/?url=' ~ (url|e('esc_url')))|e('esc_url') }}" class="share-this__link" target="shareThisWindow" rel="noreferrer noopener" aria-label="LinkedIn">
   <svg class="icon icon--is-linkedin">
     <use class="icon__use" xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-linkedin' }}"></use>
   </svg>
