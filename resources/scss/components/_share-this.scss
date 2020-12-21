@@ -5,6 +5,10 @@
   align-items: flex-start;
   padding: 0 var(--spacer-small);
 
+  @include media-breakpoint-up(sm) {
+    padding: 0;
+  }
+
   &__heading {
     font-size: var(--font-size-x-small);
     line-height: 1;
