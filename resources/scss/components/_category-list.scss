@@ -31,6 +31,15 @@
     text-transform: uppercase;
     display: block;
     background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    transition-property: background-color, color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+
+    .body--is-desktop &:hover {
+      background-color: transparent;
+      color: var(--color-primary);
+    }
   }
 
   &--is-primary {

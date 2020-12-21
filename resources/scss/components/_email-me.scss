@@ -28,6 +28,11 @@
     @include focus(8px);
     font-size: var(--font-size-small);
     font-weight: var(--font-weight-bold);
-    line-height: var(--line-height-base);
+    line-height: var(--line-height-normal);
+    display: block;
+
+    .body--is-desktop & {
+      @include hover(-4px, var(--color-white));
+    }
   }
 }
