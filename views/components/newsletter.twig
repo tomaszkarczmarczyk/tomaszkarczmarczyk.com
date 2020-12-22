@@ -15,7 +15,7 @@
   </p>
 {% endif %}
 
-<form action="{{ theme.theme_mod('newsletter_page') ? get_permalink(theme.theme_mod('newsletter_page'))|e('esc_url') : '#' }}" method="post" class="newsletter__form" novalidate>
+<form action="{{ theme.theme_mod('newsletter_page') ? get_permalink(theme.theme_mod('newsletter_page'))|e('esc_url') : '#' }}" method="post" class="newsletter__form">
   <div class="newsletter__form-group">
     <label for="{{ id }}-friend-name" class="newsletter__label">{{ __('Twoje imię:', 'tokk') }}</label>
     <input id="{{ id }}-friend-name" class="newsletter__input" type="text" placeholder="Tomasz" value="" required />
@@ -27,4 +27,9 @@
   <div class="newsletter__form-group">
     <input type="submit" class="newsletter__submit button button--is-primary" value="{{ __('Zapisz mnie', 'tokk') }}" />
   </div>
+  {{
+    wp_nonce_field('send', '_wpnonce', true, false)|replace({
+      'id="_wpnonce"': ''
+    })
+  }}
 </form>
