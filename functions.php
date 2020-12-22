@@ -1,7 +1,9 @@
 <?php defined('ABSPATH') or exit();
 
 add_filter('max_srcset_image_width', '__return_false');
+remove_filter('the_content', 'wpautop');
 remove_filter('the_excerpt', 'wpautop');
+remove_filter('term_description', 'wpautop');
 
 if (!function_exists('tokk_setup')) {
   function tokk_setup()

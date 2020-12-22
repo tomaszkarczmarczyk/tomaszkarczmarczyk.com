@@ -3,12 +3,16 @@
 {% block content %}
   <main class="main">
     <h1 class="heading heading--is-primary">
-      {{ term.name }}
+      {% filter apply_filters('single_term_title') %}
+        {{ term.name }}
+      {% endfilter %}
     </h1>
     {% if term.description %}
       <div class="description">
         <p class="description__paragraph">
-          {{ term.description }}
+          {% filter apply_filters('term_description') %}
+            {{ term.description }}
+          {% endfilter %}
         </p>
       </div>
     {% endif %}
