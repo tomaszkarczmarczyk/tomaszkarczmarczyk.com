@@ -1,0 +1,23 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+  <main class="page">
+    <h1 class="heading heading--is-primary">
+      {{ post.title }}
+    </h1>
+
+    {% if post.thumbnail %}
+      <figure class="cover">
+        {% include 'components/cover.twig' with {
+          class: 'cover'
+        } %}
+      </figure>
+    {% endif %}
+
+    <div class="content">
+      {% filter apply_filters('tokk_content_sanitize') %}
+        {{ post.content }}
+      {% endfilter %}
+    </div>
+  </main>
+{% endblock %}
