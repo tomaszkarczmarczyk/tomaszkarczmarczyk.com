@@ -8,7 +8,9 @@
     {% if theme.theme_mod('blog_description') %}
       <div class="description">
         <p class="description__paragraph">
-          {{ theme.theme_mod('blog_description') }}
+          {% filter apply_filters('the_content') %}
+            {{ theme.theme_mod('blog_description') }}
+          {% endfilter %}
         </p>
 
         {% if categories %}
@@ -16,6 +18,7 @@
             <h2 class="category-list__heading">
               {{ __('Wszystkie kategorie:', 'tokk') }}
             </h2>
+
             {% include 'components/category-list.twig' with {
               categories: categories
             } %}

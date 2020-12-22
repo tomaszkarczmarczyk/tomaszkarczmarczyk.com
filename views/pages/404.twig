@@ -9,7 +9,9 @@
     {% if theme.theme_mod('page_not_found_description') %}
       <div class="description">
         <p class="description__paragraph">
-          {{ theme.theme_mod('page_not_found_description') }}
+          {% filter apply_filters('the_content') %}
+            {{ theme.theme_mod('page_not_found_description') }}
+          {% endfilter %}
         </p>
       </div>
     {% endif %}
