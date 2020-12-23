@@ -4,11 +4,7 @@ class Tokk_Newsletter extends WP_Widget
 {
   public function __construct()
   {
-    parent::__construct('tokk-widget-newsletter', __('Newsletter', 'tokk'));
-
-    add_action('widgets_init', function () {
-      register_widget('Tokk_Newsletter');
-    });
+    parent::__construct('tokk-newsletter-widget', __('Newsletter', 'tokk'));
   }
 
   public function widget($args, $instance)
@@ -72,4 +68,9 @@ class Tokk_Newsletter extends WP_Widget
   }
 }
 
-new Tokk_Newsletter();
+function tokk_register_newsletter_widget()
+{
+  register_widget('Tokk_Newsletter');
+}
+
+add_action('widgets_init', 'tokk_register_newsletter_widget');
