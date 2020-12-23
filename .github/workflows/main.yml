@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@master
         with:
-          node-version: '14'
+          node-version: '15'
       - name: Check versions
         run: |
           echo "Node:"
@@ -22,6 +22,8 @@ jobs:
           npm --version
           echo "Git:"
           git --version
+      - name: Install rimraf
+        run: npm i -g rimraf
       - name: Install dependencies
         run: npm ci
       - name: Build bundle
