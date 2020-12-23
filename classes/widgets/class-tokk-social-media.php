@@ -4,11 +4,7 @@ class Tokk_Social_Media extends WP_Widget
 {
   public function __construct()
   {
-    parent::__construct('tokk-widget-social-media', __('Social Media', 'tokk'));
-
-    add_action('widgets_init', function () {
-      register_widget('Tokk_Social_Media');
-    });
+    parent::__construct('tokk-social-media-widget', __('Social Media', 'tokk'));
   }
 
   public function widget($args, $instance)
@@ -55,4 +51,9 @@ class Tokk_Social_Media extends WP_Widget
   }
 }
 
-new Tokk_Social_Media();
+function tokk_register_social_media_widget()
+{
+  register_widget('Tokk_Social_Media');
+}
+
+add_action('widgets_init', 'tokk_register_social_media_widget');

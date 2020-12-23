@@ -4,11 +4,7 @@ class Tokk_Email_Me extends WP_Widget
 {
   public function __construct()
   {
-    parent::__construct('tokk-widget-email-me', __('E-mail Me', 'tokk'));
-
-    add_action('widgets_init', function () {
-      register_widget('Tokk_Email_Me');
-    });
+    parent::__construct('tokk-email-me-widget', __('E-mail Me', 'tokk'));
   }
 
   public function widget($args, $instance)
@@ -90,4 +86,9 @@ class Tokk_Email_Me extends WP_Widget
   }
 }
 
-new Tokk_Email_Me();
+function tokk_register_email_me_widget()
+{
+  register_widget('Tokk_Email_Me');
+}
+
+add_action('widgets_init', 'tokk_register_email_me_widget');
