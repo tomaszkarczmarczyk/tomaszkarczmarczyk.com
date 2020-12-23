@@ -38,9 +38,7 @@ jobs:
           name: bundle
           path: dist
       - name: Debug
-        run: |
-          ls .
-          ls dist
+        run: ls
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
