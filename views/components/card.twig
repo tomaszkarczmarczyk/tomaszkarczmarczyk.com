@@ -1,7 +1,8 @@
 {% if post.thumbnail %}
   <figure class="cover">
     {% include 'components/cover.twig' with {
-      class: 'cover'
+      class: 'cover',
+      lazy: true
     } %}
   </figure>
 {% endif %}
