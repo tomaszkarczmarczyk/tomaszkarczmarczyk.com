@@ -26,6 +26,8 @@ jobs:
         run: npm i -g rimraf
       - name: Install dependencies
         run: npm ci
+      - name: Checkout
+        uses: actions/checkout@master
       - name: Build bundle
         run: npm run build:dist
       - name: Upload bundle
