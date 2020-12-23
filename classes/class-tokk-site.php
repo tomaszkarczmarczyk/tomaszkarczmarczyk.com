@@ -1,5 +1,9 @@
 <?php defined('ABSPATH') or exit();
 
+if (!class_exists('Timber')) {
+  return;
+}
+
 if (!class_exists('Tokk_Site')) {
   class Tokk_Site extends Timber\Site
   {
