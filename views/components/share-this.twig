@@ -1,0 +1,35 @@
+{% set mailto = 'mailto:?subject='
+  ~ (title
+    |replace({
+      '&nbsp;': ' '
+    })
+    |url_encode)
+  ~ '&amp;body='
+  ~ (url|e('esc_url'))
+%}
+
+<a href="{{ ('https://www.facebook.com/sharer/sharer.php?u=' ~ (url|e('esc_url')) ~ '&amp;t=' ~ title)|e('esc_url') }}" class="share-this__link" target="shareThisWindow" rel="noreferrer noopener" aria-label="Facebook">
+  <svg class="icon icon--is-facebook">
+    <use xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-facebook' }}"></use>
+  </svg>
+</a>
+<a href="{{ ('https://twitter.com/intent/tweet?url=' ~ (url|e('esc_url')) ~ '&amp;text=' ~ title)|e('esc_url') }}" class="share-this__link" target="shareThisWindow" rel="noreferrer noopener" aria-label="Twitter">
+  <svg class="icon icon--is-twitter">
+    <use xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-twitter' }}"></use>
+  </svg>
+</a>
+<a href="{{ ('https://www.linkedin.com/sharing/share-offsite/?url=' ~ (url|e('esc_url')))|e('esc_url') }}" class="share-this__link" target="shareThisWindow" rel="noreferrer noopener" aria-label="LinkedIn">
+  <svg class="icon icon--is-linkedin">
+    <use xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-linkedin' }}"></use>
+  </svg>
+</a>
+<a href="{{ mailto }}" class="share-this__link" aria-label="E-mail">
+  <svg class="icon icon--is-email">
+    <use xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-email' }}"></use>
+  </svg>
+</a>
+<a href="{{ url|e('esc_url') }}" id="copy" class="share-this__link" target="_blank" rel="noreferrer noopener" aria-label="Copy URL">
+  <svg class="icon icon--is-copy">
+    <use xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-copy' }}"></use>
+  </svg>
+</a>

@@ -1,0 +1,44 @@
+{% extends 'layouts/base.twig' %}
+
+{% block content %}
+  <main class="main">
+    <h1 class="heading heading--is-primary">
+      {% filter apply_filters('single_term_title') %}
+        {{ term.name }}
+      {% endfilter %}
+    </h1>
+    {% if term.description %}
+      <div class="description">
+        <p class="description__paragraph">
+          {% filter apply_filters('term_description') %}
+            {{ term.description }}
+          {% endfilter %}
+        </p>
+      </div>
+    {% endif %}
+
+    {% if term.posts %}
+      {% for post in term.posts({
+        posts_per_page: posts_per_page
+      }) %}
+        <div class="card">
+          {% include 'components/card.twig' with {
+            post: post
+          } %}
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="description description--is-info">
+        <p class="description__paragraph">
+          {{ __('W tej kategorii nie ma jeszcze artykułów', 'tokk') }}
+        </p>
+      </div>
+    {% endif %}
+  </main>
+
+  {% if sidebar %}
+    <aside class="sidebar sidebar--is-category">
+      {{ sidebar }}
+    </aside>
+  {% endif %}
+{% endblock %}

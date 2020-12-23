@@ -1,0 +1,15 @@
+{% set default_email = 'hello@tomaszkarczmarczyk.com' %}
+<svg class="icon icon--is-at">
+  <use class="icon__use" xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-at' }}"></use>
+</svg>
+<h2 class="email-me__heading">
+  {% filter apply_filters('widget_title') %}
+    {{ title ?? __('W czym mogę Ci pomóc?', 'tokk') }}
+  {% endfilter %}
+</h2>
+<p class="email-me__text">
+  {% filter apply_filters('widget_text') %}
+    {{ text ?? __('Napisz do mnie na adres e-mail:', 'tokk') }}
+  {% endfilter %}
+</p>
+<a href="{{ 'mailto:' ~ email ?? default_email }}" class="email-me__link">{{ email ?? default_email }}</a>

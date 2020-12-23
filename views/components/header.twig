@@ -1,0 +1,11 @@
+<div class="header__wrapper">
+  <figure class="logo">
+    {% include 'components/logo.twig' %}
+  </figure>
+  <nav class="menu menu--is-primary menu--is-desktop">
+    {% include 'components/menu.twig' with {
+      items: menu_1.items
+    } %}
+  </nav>
+  <button id="hamburger" class="hamburger" aria-label="Menu Button">{% include 'components/hamburger.twig' %}</button>
+</div>

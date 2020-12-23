@@ -1,0 +1,34 @@
+:root {
+  --font-family-sans-serif: #{inspect($font-family-sans-serif)};
+  --font-family-monospace: #{inspect($font-family-monospace)};
+  --content-width: #{$content-width};
+  --sidebar-width: #{$sidebar-width};
+
+  @each $color, $value in $colors {
+    --color-#{$color}: #{$value};
+  }
+
+  @each $size, $value in $font-sizes {
+    --font-size-#{$size}: #{$value};
+  }
+
+  @each $weight, $value in $font-weights {
+    --font-weight-#{$weight}: #{$value};
+  }
+
+  @each $spacer, $value in $spacers {
+    --spacer-#{$spacer}: #{$value};
+  }
+
+  @each $bp, $value in $grid-breakpoints {
+    --breakpoint-#{$bp}: #{$value};
+  }
+
+  @each $height, $value in $line-heights {
+    --line-height-#{$height}: #{$value};
+  }
+
+  --shadow: #{inspect($shadow)};
+  --transition-duration: #{$transition-duration};
+  --transition-timing-function: #{$transition-timing-function};
+}

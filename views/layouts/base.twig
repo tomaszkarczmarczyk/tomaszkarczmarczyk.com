@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html {{ site.language_attributes }}>
+  <head>
+    <meta charset="{{ site.charset }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="author" href="{{ (site.link ~ '/humans.txt')|e('esc_url') }}" />
+    {{ wp_head() }}
+  </head>
+  <body class="{{ body_class }}">
+    {{ wp_body_open() }}
+
+    <div class="layout">
+      <header class="header">
+        {% include 'components/header.twig' %}
+      </header>
+      <div class="container">
+        {% block content %}
+          Under construction...
+        {% endblock %}
+      </div>
+      <footer class="footer">
+        {% include 'components/footer.twig' %}
+      </footer>
+    </div>
+    <aside id="aside" class="aside">
+      <nav class="menu menu--is-primary menu--is-mobile">
+        {% include 'components/menu.twig' with {
+          items: menu_1.items
+        } %}
+      </nav>
+      <div class="social-media social-media--is-secondary">
+        {% include 'components/social-media.twig' %}
+      </div>
+    </aside>
+
+    {{ wp_footer() }}
+  </body>
+</html>

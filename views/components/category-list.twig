@@ -1,0 +1,5 @@
+<ul class="category-list__items">
+  {% for category in categories %}
+    <li class="category-list__item"><a class="category-list__link" href="{{ get_category_link(category.term_id)|e('esc_url') }}" aria-label="Category Link">{{ category.name }}</a></li>
+  {% endfor %}
+</ul>

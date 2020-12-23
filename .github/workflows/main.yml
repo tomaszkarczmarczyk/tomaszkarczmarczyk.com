@@ -13,8 +13,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@master
         with:
-          node-version: '14'
-      - name: Versions
+          node-version: '15'
+      - name: Check versions
         run: |
           echo "Node:"
           node --version
@@ -22,14 +22,12 @@ jobs:
           npm --version
           echo "Git:"
           git --version
+      - name: Install rimraf
+        run: npm i -g rimraf
       - name: Install dependencies
-        run: npm i
-      - name: Install Gulp
-        run: |
-          npm i gulp-cli -g
-          gulp --version
-      - name: Build
-        run: gulp build --production
+        run: npm ci
+      - name: Build bundle
+        run: npm run build:dist
       - name: Upload bundle
         uses: actions/upload-artifact@master
         with:

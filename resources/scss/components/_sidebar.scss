@@ -1,0 +1,16 @@
+.sidebar {
+  padding: 0 var(--spacer-small);
+  align-self: stretch;
+
+  @include media-breakpoint-up(sm) {
+    padding: 0;
+  }
+
+  > * + * {
+    margin-top: var(--spacer-small);
+  }
+
+  @include media-breakpoint-up(lg) {
+    flex-basis: $sidebar-width;
+  }
+}

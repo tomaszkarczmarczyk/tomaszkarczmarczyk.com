@@ -1,0 +1,17 @@
+.logo {
+  line-height: var(--line-height-base);
+  margin-right: var(--spacer-small);
+
+  &__link {
+    @include links(var(--color-black));
+    @include focus();
+    font-weight: var(--font-weight-bold);
+    line-height: inherit;
+    text-transform: uppercase;
+    display: block;
+
+    @include media-breakpoint-up(sm) {
+      font-size: var(--font-size-x-large);
+    }
+  }
+}

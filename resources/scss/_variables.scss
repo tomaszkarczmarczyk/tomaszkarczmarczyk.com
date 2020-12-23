@@ -1,0 +1,86 @@
+$content-width: 700px;
+$sidebar-width: 300px;
+$container-lg-width: 1040px;
+$container-sm-width: 700px;
+
+$grid-breakpoints: (
+  sm: 740px,
+  lg: 1080px,
+);
+
+// Colors
+$colors: (
+  primary: #{"hsl(220, 100%, 50%)"},
+  danger: #{"hsl(0, 75%, 50%)"},
+  warning: #{"hsl(50, 90%, 50%)"},
+  black: #{"hsl(0, 0%, 0%)"},
+  white: #{"hsl(0, 0%, 100%)"},
+  gray-100: #{"hsl(0, 0%, 97%)"},
+  gray-200: #{"hsl(0, 0%, 87%)"},
+  gray-300: #{"hsl(0, 0%, 77%)"},
+  gray-400: #{"hsl(0, 0%, 67%)"},
+  facebook: #{"hsl(220, 46%, 48%)"},
+  instagram: #{"hsl(276, 51%, 47%)"},
+  twitter: #{"hsl(203, 89%, 53%)"},
+  linkedin: #{"hsl(213, 63%, 43%)"},
+);
+
+// Spacers
+$spacers: (
+  xxx-small: 0.8rem,
+  xx-small: 1.2rem,
+  x-small: 1.6rem,
+  small: 2rem,
+  medium: 2.4rem,
+  large: 2.8rem,
+  x-large: 3.2rem,
+  xx-large: 3.6rem,
+  xxx-large: 4rem,
+);
+
+// Breakpoints
+// $grid-breakpoints: (
+//   lg: (
+//     $content-width + $sidebar-width +
+//       (map-get($spacers, "xxx-large") / (map-get($spacers, "xxx-large") * 0 + 1)) * 10,
+//   ),
+// );
+
+// Fonts
+$font-family-sans-serif: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-monospace: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+$font-sizes: (
+  xxx-small: 0.4rem,
+  xx-small: 0.8rem,
+  x-small: 1.2rem,
+  small: 1.6rem,
+  medium: 2rem,
+  large: 2.4rem,
+  x-large: 2.8rem,
+  xx-large: 3.2rem,
+  xxx-large: 3.6rem,
+);
+
+$font-weights: (
+  light: 300,
+  regular: 400,
+  bold: 700,
+);
+
+$line-heights: (
+  base: 1,
+  small: 1.25,
+  normal: 1.5,
+  medium: 1.75,
+  large: 2,
+);
+
+// Transitions
+$transition-duration: 240ms;
+$transition-timing-function: ease-in-out;
+
+// Shadow
+$shadow: 0 0 4px map-get($colors, "gray-300");

@@ -1,0 +1,46 @@
+.single-post {
+  @include media-breakpoint-up(lg) {
+    flex: 1 1 0;
+  }
+
+  > * + * {
+    margin-top: var(--spacer-small);
+  }
+
+  &__header {
+    padding: 0 var(--spacer-small);
+
+    @include media-breakpoint-up(sm) {
+      padding: 0;
+    }
+
+    > * + * {
+      margin-top: var(--spacer-small);
+    }
+  }
+
+  &__lead {
+    @include selection();
+    font-size: var(--font-size-large);
+    padding: 0 var(--spacer-small) calc(2 * var(--spacer-xxx-large));
+    text-align: center;
+    position: relative;
+
+    @include media-breakpoint-up(sm) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &::before {
+      position: absolute;
+      left: 50%;
+      bottom: calc(var(--spacer-xxx-large) - 4px);
+      content: "";
+      width: 8px;
+      height: 8px;
+      background-color: var(--color-primary);
+      margin-left: -4px;
+      transform: rotate(45deg);
+    }
+  }
+}

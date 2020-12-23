@@ -1,0 +1,35 @@
+<svg class="icon icon--is-newsletter">
+  <use class="icon__use" xlink:href="{{ theme.link ~ '/assets/svg/sprites.svg#icon-newsletter' }}"></use>
+</svg>
+<h2 class="newsletter__heading">
+  {% filter apply_filters('widget_title') %}
+    {{ title ?? __('Dołącz do repozytorium', 'tokk') }}
+  {% endfilter %}
+</h2>
+
+{% if text %}
+  <p class="newsletter__text">
+    {% filter apply_filters('widget_text') %}
+      {{ text }}
+    {% endfilter %}
+  </p>
+{% endif %}
+
+<form action="{{ theme.theme_mod('newsletter_page') ? get_permalink(theme.theme_mod('newsletter_page'))|e('esc_url') : '#' }}" method="post" class="newsletter__form">
+  <div class="newsletter__form-group">
+    <label for="{{ id }}-friend-name" class="newsletter__label">{{ __('Twoje imię:', 'tokk') }}</label>
+    <input id="{{ id }}-friend-name" class="newsletter__input" type="text" placeholder="Tomasz" value="" required />
+  </div>
+  <div class="newsletter__form-group">
+    <label for="{{ id }}-friend-email" class="newsletter__label">{{ __('Twój e-mail:', 'tokk') }}</label>
+    <input id="{{ id }}-friend-email" class="newsletter__input" type="email" placeholder="hello@tomaszkarczmarczyk.com" value="" required />
+  </div>
+  <div class="newsletter__form-group">
+    <input type="submit" class="newsletter__submit button button--is-primary" value="{{ __('Zapisz mnie', 'tokk') }}" />
+  </div>
+  {{
+    wp_nonce_field('send', '_wpnonce', true, false)|replace({
+      'id="_wpnonce"': ''
+    })
+  }}
+</form>

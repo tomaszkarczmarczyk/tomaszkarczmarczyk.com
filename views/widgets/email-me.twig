@@ -1,0 +1,7 @@
+{{ args.before_widget|raw }}
+{% include 'components/email-me.twig' with {
+  title: instance.title,
+  text: instance.text,
+  email: instance.email
+} %}
+{{ args.after_widget|raw }}

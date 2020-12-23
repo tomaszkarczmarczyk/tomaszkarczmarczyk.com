@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  @include media-breakpoint-up(sm) {
+    width: $container-sm-width;
+    justify-self: center;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: $container-lg-width;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  > * + * {
+    margin-top: var(--spacer-small);
+
+    @include media-breakpoint-up(lg) {
+      margin-left: var(--spacer-xxx-large);
+      margin-top: 0;
+    }
+  }
+}

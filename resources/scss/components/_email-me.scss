@@ -1,0 +1,38 @@
+.email-me {
+  background-color: var(--color-primary);
+  box-shadow: var(--shadow);
+  padding: var(--spacer-small);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  > * + * {
+    margin-top: var(--spacer-small);
+  }
+
+  &__heading {
+    font-size: var(--font-size-xx-large);
+    color: var(--color-white);
+    text-align: center;
+  }
+
+  &__text {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-normal);
+    color: var(--color-white);
+  }
+
+  &__link {
+    @include links(var(--color-white));
+    @include focus(8px);
+    font-size: var(--font-size-small);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-normal);
+    display: block;
+
+    .body--is-desktop & {
+      @include hover(-4px, var(--color-white));
+    }
+  }
+}

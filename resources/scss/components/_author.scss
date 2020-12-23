@@ -1,0 +1,15 @@
+.author {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__cover {
+    margin-right: var(--spacer-xx-small);
+  }
+
+  &__name {
+    font-size: var(--font-size-x-small);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-base);
+  }
+}
