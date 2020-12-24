@@ -52,7 +52,7 @@
     font-size: var(--font-size-small);
     padding: 0 var(--spacer-small);
     color: var(--color-black);
-    border: 1px solid var(--color-white);
+    border: none;
 
     @include media-breakpoint-up(lg) {
       padding: 0 var(--spacer-xxx-small);
