@@ -1,14 +1,25 @@
 .hamburger {
-  @include focus(8px);
   $this: &;
+  @include focus(8px);
   position: relative;
   width: 40px;
   height: 20px;
   background-color: transparent;
-  z-index: 99;
 
-  @include media-breakpoint-up(sm) {
-    display: none;
+  .aside & {
+    opacity: 0;
+  }
+
+  .aside--is-visible & {
+    opacity: 1;
+    transition: opacity var(--transition-duration) var(--transition-timing-function)
+      calc(3 * var(--transition-duration));
+  }
+
+  .header & {
+    @include media-breakpoint-up(sm) {
+      display: none;
+    }
   }
 
   &__item {

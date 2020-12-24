@@ -20,4 +20,23 @@
       flex-basis: $container-lg-width;
     }
   }
+
+  &--is-sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 98;
+    height: 60px;
+    transform: translateY(-100%);
+    opacity: 0;
+    transition-property: transform, opacity;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+  }
+
+  &--is-visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
