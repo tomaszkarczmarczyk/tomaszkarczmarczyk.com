@@ -30,7 +30,6 @@
 
   &__copyright {
     color: var(--color-black);
-    margin-bottom: var(--spacer-xx-small);
 
     @include media-breakpoint-up(sm) {
       margin-bottom: 0;

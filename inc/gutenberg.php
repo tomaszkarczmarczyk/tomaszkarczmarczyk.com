@@ -97,6 +97,11 @@ if (!function_exists('tokk_color_palette')) {
         'slug' => 'gray-300',
         'color' => 'hsl(0, 0%, 77%)',
       ],
+      [
+        'name' => __('Gray 400', 'tokk'),
+        'slug' => 'gray-400',
+        'color' => 'hsl(0, 0%, 67%)',
+      ],
     ];
   }
 }
@@ -160,17 +165,6 @@ if (!function_exists('tokk_sanitize_image')) {
   function tokk_sanitize_image($content)
   {
     preg_match_all('/srcset="(.*?)"/i', $content, $test);
-
-    // <source></source>
-
-    // return preg_replace(
-    //   '/(<img(.*?)\/>)/i',
-    //   '<picture><source srcset="' . $test[1][0] . '"/>$1</picture>',
-    //   $content,
-    // );
-
-    // echo '<pre>' . print_r(str_replace('.jpg', '.jpg.webp', $test[1])) . '</pre>';
-    // echo '<pre>' . print_r($test) . '</pre>';
 
     return preg_replace('/wp-image-(\d+)/i', 'content__image content__image--is-$1', $content);
   }
