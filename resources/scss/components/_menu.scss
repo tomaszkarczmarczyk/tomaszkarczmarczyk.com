@@ -6,7 +6,7 @@
     list-style: none;
 
     #{$this}--is-mobile & {
-      width: 100vw;
+      max-height: 100%;
     }
 
     #{$this}--is-desktop & {
@@ -86,7 +86,9 @@
     transform: translateY(var(--spacer-xxx-large));
     transform-origin: center center;
     overflow: auto;
-    padding: var(--spacer-xxx-large) 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .aside--is-visible & {
       opacity: 1;

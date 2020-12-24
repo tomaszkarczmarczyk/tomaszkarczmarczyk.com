@@ -32,11 +32,6 @@
   }
 
   &--is-secondary {
-    width: 100vw;
-    height: 80px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
     opacity: 0;
     transform: translateY(var(--spacer-xxx-large));
     transform-origin: center center;

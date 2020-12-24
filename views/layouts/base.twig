@@ -11,7 +11,7 @@
     {{ wp_body_open() }}
 
     <div class="layout">
-      <header class="header">
+      <header id="header" class="header">
         {% include 'components/header.twig' %}
       </header>
       <div class="container">
@@ -23,7 +23,13 @@
         {% include 'components/footer.twig' %}
       </footer>
     </div>
+    <header id="header-sticky" class="header header--is-sticky">
+      {% include 'components/header.twig' %}
+    </header>
     <aside id="aside" class="aside">
+      <div class="aside__header">
+        <button class="hamburger" aria-label="Close Mobile Menu">{% include 'components/hamburger.twig' %}</button>
+      </div>
       <nav class="menu menu--is-primary menu--is-mobile">
         {% include 'components/menu.twig' with {
           items: menu_1.items
