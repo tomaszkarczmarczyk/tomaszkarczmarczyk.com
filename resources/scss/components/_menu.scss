@@ -28,7 +28,6 @@
     #{$this}--is-mobile & {
       display: flex;
       justify-content: center;
-      align-items: center;
       font-size: var(--font-size-xxx-large);
       font-weight: var(--font-weight-bold);
       line-height: 1;
@@ -85,7 +84,8 @@
     opacity: 0;
     transform: translateY(var(--spacer-xxx-large));
     transform-origin: center center;
-    overflow: auto;
+    overflow: hidden;
+    overflow-y: auto;
     display: flex;
     justify-content: center;
     align-items: center;
