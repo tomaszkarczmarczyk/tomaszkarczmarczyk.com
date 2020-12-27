@@ -32,14 +32,14 @@
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing-function);
 
+    #{$this}--is-open & {
+      background-color: var(--color-white);
+    }
+
     &:first-child,
     &:last-child {
       transition-property: background-color, transform;
       transform-origin: center center;
-
-      #{$this}--is-open & {
-        background-color: var(--color-white);
-      }
     }
 
     &:first-child {
@@ -57,7 +57,6 @@
 
       #{$this}--is-open & {
         opacity: 0;
-        background-color: var(--color-primary);
       }
     }
 

@@ -84,12 +84,36 @@ if (!function_exists('tokk_customize_newsletter')) {
       'type' => 'theme_mod',
     ]);
 
+    $wp_customize->add_setting('newsletter_api', [
+      'default' => '',
+      'type' => 'theme_mod',
+    ]);
+
+    $wp_customize->add_setting('newsletter_group', [
+      'default' => '',
+      'type' => 'theme_mod',
+    ]);
+
     $wp_customize->add_control(
       new WP_Customize_Control($wp_customize, 'newsletter_page', [
         'label' => __('Page', 'tokk'),
         'section' => 'newsletter',
         'type' => 'select',
         'choices' => tokk_get_all_pages(),
+      ]),
+    );
+
+    $wp_customize->add_control(
+      new WP_Customize_Control($wp_customize, 'newsletter_api', [
+        'label' => __('API', 'tokk'),
+        'section' => 'newsletter',
+      ]),
+    );
+
+    $wp_customize->add_control(
+      new WP_Customize_Control($wp_customize, 'newsletter_group', [
+        'label' => __('Group ID', 'tokk'),
+        'section' => 'newsletter',
       ]),
     );
   }
