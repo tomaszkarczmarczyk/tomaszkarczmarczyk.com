@@ -31,7 +31,7 @@ jobs:
       - name: Copy files
         run: |
           cp -pv *.{css,php,png} dist
-          cp -av assets classes inc views dist
+          cp -av assets classes inc mailerlite views dist
       - name: Upload bundle
         uses: actions/upload-artifact@master
         with:
