@@ -17,10 +17,6 @@
     </div>
 
     {% if posts %}
-      <h2 class="heading heading--is-secondary">
-        {{ __('Najnowsze artykuły na blogu:', 'tokk') }}
-      </h2>
-
       {% for post in posts %}
         <div class="card">
           {% include 'components/card.twig' with {

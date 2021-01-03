@@ -2,15 +2,15 @@
   $this: &;
   padding: 0 var(--spacer-small);
 
+  @include media-breakpoint-up(sm) {
+    padding: 0;
+  }
+
   .me & {
     @include media-breakpoint-up(sm) {
       order: 0;
       flex-basis: 100%;
     }
-  }
-
-  @include media-breakpoint-up(sm) {
-    padding: 0;
   }
 
   * {
@@ -39,9 +39,9 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 1px;
+        height: 4px;
         content: "";
-        background: linear-gradient(to right, var(--color-black), transparent);
+        background: linear-gradient(to right, var(--color-gray-200), transparent);
       }
     }
 
@@ -72,6 +72,7 @@
     @include links(var(--color-primary));
     @include focus();
     display: inline-block;
+    font-weight: var(--font-weight-bold);
 
     #{$this}__image-wrapper & {
       display: block;
@@ -105,7 +106,6 @@
 
   &__image-wrapper {
     display: table;
-    box-shadow: var(--shadow);
 
     &--is-align-left {
       margin-right: auto;
@@ -149,6 +149,10 @@
 
     &--is-style-warning {
       border-color: var(--color-warning);
+    }
+
+    &--is-style-danger {
+      border-color: var(--color-danger);
     }
   }
 
@@ -266,15 +270,16 @@
 
     #{$this}__code-wrapper & {
       padding: var(--spacer-small);
+      border: 0;
       display: block;
     }
   }
 
   &__preformatted {
     background-color: var(--color-white);
-    border: 1px solid var(--color-gray-200);
     padding: var(--spacer-small);
     white-space: pre-wrap;
+    box-shadow: var(--shadow);
   }
 
   &__text-align {
@@ -289,6 +294,20 @@
     &--is-right {
       text-align: right;
     }
+  }
+
+  &__abbreviation {
+    border: 1px solid var(--color-gray-200);
+    padding: 0 var(--spacer-xxx-small);
+  }
+
+  &__keyboard {
+    font-weight: var(--font-weight-bold);
+    border: 4px solid var(--color-gray-200);
+    font-size: var(--font-size-medium);
+    padding: 0 var(--spacer-xxx-small);
+    box-shadow: inner var(--shadow);
+    display: inline-block;
   }
 
   &__custom-text-color {
@@ -322,6 +341,10 @@
 
     &--is-gray-300 {
       color: var(--color-gray-300);
+    }
+
+    &--is-gray-400 {
+      color: var(--color-gray-400);
     }
   }
 
@@ -360,5 +383,13 @@
     &--is-gray-300 {
       background-color: var(--color-gray-300);
     }
+
+    &--is-gray-400 {
+      background-color: var(--color-gray-400);
+    }
+  }
+
+  &__code-wrapper {
+    box-shadow: var(--shadow);
   }
 }

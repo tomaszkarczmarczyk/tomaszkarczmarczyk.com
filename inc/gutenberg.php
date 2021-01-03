@@ -261,8 +261,13 @@ if (!function_exists('tokk_block_custom_classes')) {
 
     if ($block['blockName'] === 'core/quote') {
       $content = str_replace(
-        ['wp-block-quote', 'is-style-default', 'is-style-warning'],
-        [$prefix, "$prefix--is-style-default", "$prefix--is-style-warning"],
+        ['wp-block-quote', 'is-style-default', 'is-style-warning', 'is-style-danger'],
+        [
+          $prefix,
+          "$prefix--is-style-default",
+          "$prefix--is-style-warning",
+          "$prefix--is-style-danger",
+        ],
         $content,
       );
     }
@@ -366,6 +371,8 @@ if (!function_exists('tokk_block_custom_classes')) {
           '<p>',
           '<figcaption>',
           '<cite>',
+          '<abbr',
+          '<kbd>',
         ],
         [
           'content__custom-text-color',
@@ -386,6 +393,8 @@ if (!function_exists('tokk_block_custom_classes')) {
           '<p class="content__paragraph">',
           '<figcaption class="content__caption">',
           '<cite class="content__cite">',
+          '<abbr class="content__abbreviation"',
+          '<kbd class="content__keyboard">',
         ],
         $content,
       );

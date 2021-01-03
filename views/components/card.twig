@@ -1,3 +1,17 @@
+<header class="card__header">
+  <h2 class="card__heading">
+    {{ post.title }}
+  </h2>
+
+  {% if post.author %}
+    <div class="author">
+      {% include 'components/author.twig' with {
+        author: post.author
+      } %}
+    </div>
+  {% endif %}
+</header>
+
 {% if post.thumbnail %}
   <figure class="cover">
     {% include 'components/cover.twig' with {
@@ -7,19 +21,7 @@
   </figure>
 {% endif %}
 
-<section class="card__body">
-  {% if post.categories %}
-    <div class="category-list category-list--is-primary">
-      {% include 'components/category-list.twig' with {
-        categories: post.categories
-      } %}
-    </div>
-  {% endif %}
-
-  <h2 class="card__heading">
-    {{ post.title }}
-  </h2>
-
+<div class="card__body">
   {% if post.post_excerpt %}
     <p class="card__lead">
       {% filter apply_filters('the_excerpt') %}
@@ -29,4 +31,4 @@
   {% endif %}
 
   <a href="{{ post.link|e('esc_url') }}" aria-label="Read More" class="card__link"><span class="card__inner">{{ __('Czytaj więcej', 'tokk') }}</span></a>
-</section>
+</div>
