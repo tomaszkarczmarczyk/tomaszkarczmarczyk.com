@@ -39,6 +39,7 @@
   &__link {
     @include links(var(--color-primary));
     @include focus(8px);
+    font-weight: var(--font-weight-bold);
 
     .body--is-desktop & {
       @include hover(-4px);
