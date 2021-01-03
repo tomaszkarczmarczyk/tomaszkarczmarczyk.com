@@ -23,6 +23,7 @@
     @include selection();
     font-size: var(--font-size-large);
     padding: 0 var(--spacer-small) calc(2 * var(--spacer-xxx-large));
+    font-weight: var(--font-weight-light);
     text-align: center;
     position: relative;
 
