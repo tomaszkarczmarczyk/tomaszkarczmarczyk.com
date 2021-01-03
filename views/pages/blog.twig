@@ -5,27 +5,27 @@
     <h1 class="heading heading--is-primary">
       {{ post.title }}
     </h1>
-    {% if theme.theme_mod('blog_description') %}
-      <div class="description">
+    <div class="description">
+      {% if theme.theme_mod('blog_description') %}
         <p class="description__paragraph">
           {% filter apply_filters('the_content') %}
             {{ theme.theme_mod('blog_description') }}
           {% endfilter %}
         </p>
+      {% endif %}
 
-        {% if categories %}
-          <article class="category-list">
-            <h2 class="category-list__heading">
-              {{ __('Wszystkie kategorie:', 'tokk') }}
-            </h2>
+      {% if categories %}
+        <article class="category-list">
+          <h2 class="category-list__heading">
+            {{ __('Wszystkie kategorie:', 'tokk') }}
+          </h2>
 
-            {% include 'components/category-list.twig' with {
-              categories: categories
-            } %}
-          </article>
-        {% endif %}
-      </div>
-    {% endif %}
+          {% include 'components/category-list.twig' with {
+            categories: categories
+          } %}
+        </article>
+      {% endif %}
+    </div>
 
     {% if posts %}
       {% for post in posts %}
