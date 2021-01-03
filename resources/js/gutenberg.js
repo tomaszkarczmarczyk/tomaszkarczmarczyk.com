@@ -43,6 +43,12 @@ domReady(() => {
     isDefault: false,
   });
 
+  registerBlockStyle('core/quote', {
+    name: 'danger',
+    label: __('Danger', 'tokk'),
+    isDefault: false,
+  });
+
   console.log(wp.data.select('core/rich-text').getFormatTypes());
 
   getBlockTypes().forEach((blockType) => {
