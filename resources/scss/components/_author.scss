@@ -7,6 +7,10 @@
     margin-right: var(--spacer-xx-small);
   }
 
+  &__image {
+    border-radius: 50%;
+  }
+
   &__name {
     font-size: var(--font-size-x-small);
     font-weight: var(--font-weight-bold);
