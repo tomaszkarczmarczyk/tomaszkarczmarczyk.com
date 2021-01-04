@@ -1,13 +1,23 @@
 .button {
+  @include focus();
   display: flex;
   justify-content: center;
   align-items: center;
   align-self: stretch;
   height: 40px;
+  padding: 0 var(--spacer-small);
 
   &--is-primary {
     background-color: var(--color-danger);
     font-size: var(--font-size-small);
     color: var(--color-white);
+    transition-property: background-color, color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing-function);
+
+    .body--is-desktop &:hover {
+      background-color: var(--color-warning);
+      color: var(--color-danger);
+    }
   }
 }
