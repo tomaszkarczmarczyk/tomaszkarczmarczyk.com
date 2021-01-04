@@ -1,6 +1,11 @@
 .category-list {
   $this: &;
 
+  .card & {
+    position: relative;
+    z-index: 3;
+  }
+
   &__heading {
     font-size: var(--font-size-x-small);
     line-height: 1;

@@ -1,3 +1,12 @@
+{% if post.thumbnail %}
+  <figure class="cover">
+    {% include 'components/cover.twig' with {
+      class: 'cover',
+      lazy: true
+    } %}
+  </figure>
+{% endif %}
+
 <header class="card__header">
   <h2 class="card__heading">
     {{ post.title }}
@@ -10,17 +19,15 @@
       } %}
     </div>
   {% endif %}
+
+  {% if post.categories %}
+    <div class="category-list category-list--is-secondary">
+      {% include 'components/category-list.twig' with {
+        categories: post.categories
+      } %}
+    </div>
+  {% endif %}
 </header>
-
-{% if post.thumbnail %}
-  <figure class="cover">
-    {% include 'components/cover.twig' with {
-      class: 'cover',
-      lazy: true
-    } %}
-  </figure>
-{% endif %}
-
 <div class="card__body">
   {% if post.post_excerpt %}
     <p class="card__lead">
