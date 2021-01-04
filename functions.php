@@ -200,8 +200,6 @@ add_action('wp_enqueue_scripts', 'tokk_styles');
 if (!function_exists('tokk_scripts')) {
   function tokk_scripts()
   {
-    wp_deregister_script('jquery');
-
     wp_enqueue_script(
       'main',
       get_template_directory_uri() . '/assets/js/main.js',

@@ -1,0 +1,38 @@
+.cookies {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  z-index: 97;
+  padding: var(--spacer-small);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+
+  > * + * {
+    margin-top: var(--spacer-small);
+  }
+
+  &__text {
+    font-size: var(--font-size-small);
+    line-height: var(--line-height-normal);
+  }
+
+  &__link {
+    @include links(var(--color-primary));
+    @include focus(8px);
+    font-weight: var(--font-weight-bold);
+    display: inline-block;
+
+    .body--is-desktop & {
+      @include hover(-4px);
+    }
+  }
+
+  &--is-show {
+    display: flex;
+  }
+}

@@ -62,16 +62,4 @@
       color: var(--color-gray-300);
     }
   }
-
-  &__submit {
-    @include focus();
-    transition-property: background-color, color;
-    transition-duration: var(--transition-duration);
-    transition-timing-function: var(--transition-timing-function);
-
-    .body--is-desktop &:hover {
-      background-color: var(--color-warning);
-      color: var(--color-danger);
-    }
-  }
 }
