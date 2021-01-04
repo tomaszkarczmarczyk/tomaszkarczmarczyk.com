@@ -130,6 +130,7 @@
     text-align: center;
     display: table-caption;
     caption-side: bottom;
+    margin-top: var(--spacer-xxx-small);
   }
 
   &__quote {
@@ -298,7 +299,6 @@
 
   &__abbreviation {
     border: 1px solid var(--color-gray-200);
-    padding: 0 var(--spacer-xxx-small);
   }
 
   &__keyboard {
