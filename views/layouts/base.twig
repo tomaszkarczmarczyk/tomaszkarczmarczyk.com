@@ -41,7 +41,7 @@
     </aside>
     <div id="cookies" class="cookies">
       <p class="cookies__text">
-        {{ __('Blog wykorzystuje pliki cookies w celu prawidłowego jego działania, korzystania z narzędzi analitycznych, marketingowych i społecznościowych. Jeżeli twoje ustawienia nie blokują cookies, wyrażasz zgodę na ich wykorzystywanie. Szczegóły znajdziesz w %spolityce prywatności%s.', 'tokk')|format('<a href="' ~ (get_permalink(site.wp_page_for_privacy_policy)|e('esc_url')) ~ '" class="cookies__link">', '</a>') }}
+        {{ __('Blog wykorzystuje pliki cookies w celu prawidłowego jego działania, korzystania z narzędzi analitycznych, marketingowych i społecznościowych. Jeżeli Twoje ustawienia nie blokują cookies, wyrażasz zgodę na ich wykorzystywanie. Szczegóły znajdziesz w %spolityce prywatności%s.', 'tokk')|format('<a href="' ~ (get_permalink(site.wp_page_for_privacy_policy)|e('esc_url')) ~ '" class="cookies__link">', '</a>') }}
       </p>
       <button id="cookies-button" class="button button--is-primary" aria-label="Accept Cookies">{{ __('Rozumiem i akceptuję', 'tokk') }}</button>
     </div>
