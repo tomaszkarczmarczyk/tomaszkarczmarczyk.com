@@ -50,7 +50,7 @@ jobs:
           name: bundle
           path: dist
       - name: Debug
-        run: ls
+        run: ls dist
       - name: Upload to FTP
         uses: isthatcentered/dist-to-ftp@master
         with:
