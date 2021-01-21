@@ -316,6 +316,44 @@
     display: inline-block;
   }
 
+  &__custom-font-size {
+    &--is-xxx-small {
+      font-size: var(--font-size-xxx-small);
+    }
+
+    &--is-xx-small {
+      font-size: var(--font-size-xx-small);
+    }
+
+    &--is-x-small {
+      font-size: var(--font-size-x-small);
+    }
+
+    &--is-small {
+      font-size: var(--font-size-small);
+    }
+
+    &--is-medium {
+      font-size: var(--font-size-medium);
+    }
+
+    &--is-large {
+      font-size: var(--font-size-large);
+    }
+
+    &--is-x-large {
+      font-size: var(--font-size-x-large);
+    }
+
+    &--is-xx-large {
+      font-size: var(--font-size-xx-large);
+    }
+
+    &--is-xxx-large {
+      font-size: var(--font-size-xxx-large);
+    }
+  }
+
   &__custom-text-color {
     &--is-black {
       color: var(--color-black);
