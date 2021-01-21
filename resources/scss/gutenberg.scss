@@ -42,10 +42,16 @@ h3 {
   font-size: 24px;
 }
 
-h5,
+h4,
 h5,
 h6 {
   font-size: 20px;
+}
+
+p {
+  font-weight: map-get($font-weights, "light");
+  word-break: break-word;
+  white-space: pre-line;
 }
 
 blockquote {
